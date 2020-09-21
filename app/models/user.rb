@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 2, maximum: 20 }
   validates_uniqueness_of :username, on: :create, message: 'already taken, please choose another one.'
   validates :fullname, presence: true, length: { minimum: 2, maximum: 20 }
+
+  scope :all_except, ->(user) { where.not(username: user.username) }
 end

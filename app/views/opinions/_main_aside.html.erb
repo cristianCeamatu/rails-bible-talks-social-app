@@ -1,0 +1,29 @@
+<aside class="main-aside-container w-25">
+  <div class="main-aside-header">
+    <h3 class="aside-title">WHO TO FOLLOW</h3>
+    <i class="fab fa-phone"></i>
+  </div>
+
+  <div class="main-aside-users">
+    <% users.each do |user| %>
+      <div class="main-aside-user">
+        <%= image_tag 'https://bulma.io/images/placeholders/64x64.png', size: '64x64' , alt: "Go Home", class: "rounded" %>
+
+        <div class="main-aside-user-details">
+          <p><%= link_to user.fullname, user_path(user) %></p>
+          
+          <% if user.followings.any? %>
+            <p>Followed by <%= link_to user.followings.first.follower.fullname, user_path(user.followings.first.follower) %></p>
+            <% else %>
+            <p>Not followed by anybody</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <ul class="main-aside-links list-unstyled d-flex">
+    <li><%= link_to 'Popular account', root_path, class: 'mr-3' %></li>
+    <li><%= link_to 'Find friends', root_path %></li>
+  </ul>
+</aside>

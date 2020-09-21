@@ -1,13 +1,21 @@
-<ol class="breadcrumb">
-  <li class="breadcrumb-item active mr-auto">Opinions</li>
-</ol>
-<div class="card-columns">
-  <% @opinions.each do |opinion| %>
-    <div class="card card mb-4">
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to opinion.text, opinion %></h5>
-        <p class="card-text"><%= opinion.created_at %></p>
+<div class="container-fluid">
+  <div class="d-flex">
+    <%= render 'users/side_nav' %>
+
+    <main class="w-75">
+      <%= render 'users/top_nav' %>
+
+      <div class="main-container d-flex align-items-start">
+        <!-- Bibble Talks -->
+        <section class="bible-talks w-75">
+          <div class="bible-talk-form">
+            <%= render 'form' %>
+          </div>
+          <%= render 'opinions', opinions: @opinions %>
+        </section>
+
+        <%= render 'main_aside', users: @users %>
       </div>
-    </div>
-  <% end %>
+    </main>
+  </div>
 </div>

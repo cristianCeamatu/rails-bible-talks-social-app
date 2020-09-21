@@ -11,20 +11,10 @@
 </head>
 
   <body>
-    <nav class="bg-primary">
-      <ul class="ml-auto list-unstyled d-flex align-items-center justify-content-end p-2 mb-0">
-      
-      <% if logged_in? %>
-        <li class="navbar-item"><%= link_to current_user.username, user_path(current_user), class: 'navbar-link mr-3 text-white' %></li>
-        <li class="navbar-item"><%= link_to 'Sign out', sign_out_path, class: 'navbar-link text-danger' %></li>
-        <% else %>
-        <li class="navbar-item"><%= link_to 'Sign in', sign_in_path, class: 'navbar-link text-white mr-3' %></li>
-        <li class="navbar-item"><%= link_to 'Sign up', sign_up_path, class: 'navbar-link text-white' %></li>
-      <% end %>
-      
-      </ul>
-    </nav>
-    <p class="notice"><%= notice %></p>
-    <%= yield %>
+    <% if flash.notice %>
+      <p><%= flash.notice %></p>
+    <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
