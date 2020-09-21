@@ -1,0 +1,7 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%= link_to "Opinions", opinions_path %></li>
+  <li class="breadcrumb-item"><%= link_to @opinion.id, @opinion %></li>
+  <li class="breadcrumb-item active">Edit</li>
+</ol>
+
+<%= render 'form', opinion: @opinion %>

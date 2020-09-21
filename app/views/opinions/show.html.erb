@@ -1,0 +1,16 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%= link_to "Opinions", opinions_path %></li>
+  <li class="breadcrumb-item active mr-auto"><%= @opinion.id %></li> 
+</ol>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <p class="font-weight-bold">User</p>
+      <p class="font-weight-normal"><%= @opinion.user %></p>
+    </li>
+    <li class="list-group-item">
+      <p class="font-weight-bold">Text</p>
+      <p class="font-weight-normal"><%= @opinion.text %></p>
+    </li>
+  </ul>
+</div>

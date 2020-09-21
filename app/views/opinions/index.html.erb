@@ -1,0 +1,13 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active mr-auto">Opinions</li>
+</ol>
+<div class="card-columns">
+  <% @opinions.each do |opinion| %>
+    <div class="card card mb-4">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to opinion.to_s, opinion %></h5>
+        <p class="card-text"><%= opinion.created_at %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
