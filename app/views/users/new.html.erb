@@ -1,2 +1,12 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<section class="sign-up">
+  <h1>Create a new User</h1>
+  <p>Please fill in all the required fields below</p>
+
+  <div class="sign-up-form">
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :username, label: 'Your username please', hint: '2-20 chars allowed' %>
+      <%= f.input :fullname, label: 'Full name',  hint: '2-30 chars allowed' %>
+      <%= f.button :submit, 'Create account!' %>
+    <% end %>
+  </div>
+</section>

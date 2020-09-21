@@ -1,0 +1,22 @@
+<section class="sign-up">
+  <h1>Sign in</h1>
+  <p>Please fill in the username your registered with your account:</p>
+
+  <div class="sign-up-form">
+    <%= form_with(url: sessions_path, local: true) do |f| %>
+      <div class="forms mb-4">
+        <div class="row">
+          <div class="col-md-6 offset-3">
+            <div class="form-group">
+              <%= f.label :username %>
+              <%= f.text_field :username , class: 'form-control' %>
+            </div>
+            <div class="actions mt-3">
+              <%= f.submit 'Sign In', class: 'btn btn-primary btn-block' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
