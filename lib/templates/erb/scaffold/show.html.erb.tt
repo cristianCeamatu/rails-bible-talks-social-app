@@ -1,0 +1,14 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%%= link_to "<%= plural_table_name.capitalize %>", <%= index_helper %>_path %></li>
+  <li class="breadcrumb-item active mr-auto"><%%= @<%= singular_table_name %>.id %></li> 
+</ol>
+<div class="card">
+  <ul class="list-group list-group-flush">
+<% attributes.reject{|a| a.name == 'type' || a.name == 'deleted_at' || a.name == 'password_digest'}.each do |attribute| -%>
+    <li class="list-group-item">
+      <p class="font-weight-bold"><%= attribute.human_name %></p>
+      <p class="font-weight-normal"><%%= @<%= singular_table_name %>.<%= attribute.name %> %></p>
+    </li>
+<% end -%>
+  </ul>
+</div>
