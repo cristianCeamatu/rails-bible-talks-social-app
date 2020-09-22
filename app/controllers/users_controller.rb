@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:opinions, :followed_users, :followers, photo_attachment: :blob).find(params[:id])
   end
 
   def create

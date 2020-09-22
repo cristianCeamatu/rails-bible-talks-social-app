@@ -5,7 +5,7 @@
   </div>
 
   <div class="main-aside-users">
-    <% users.each do |user| %>
+    <% users.with_attached_photo.each do |user| %>
       <div class="main-aside-user d-flex align-items-center">
         <%= image_tag user_image(user, 50), class: 'rounded-circle' %>
 

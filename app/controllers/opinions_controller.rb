@@ -4,8 +4,8 @@ class OpinionsController < ApplicationController
 
   # GET /opinions
   def index
-    @opinions = Opinion.all.order('created_at DESC')
-    @users = User.all_except(current_user).order('created_at DESC')
+    @opinions = Opinion.all.order('created_at DESC').includes(:author)
+    @users = User.all_except(current_user).order('created_at DESC').includes(:followers, photo_attachment: :blob)
     @opinion = Opinion.new
   end
 

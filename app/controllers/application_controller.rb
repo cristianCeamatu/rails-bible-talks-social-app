@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    User.find_by_username(session[:username]) if session[:username]
+    User.includes(:followers, :followed_users).find_by_username(session[:username]) if session[:username]
   end
 
   helper_method :logged_in?, :current_user

@@ -1,10 +1,9 @@
 class FollowingsController < ApplicationController
   def create
-    @followed = User.find(params[:followed_id])
-    @following = current_user.followings.new(followed_id: params[:followed_id])
+    @following = Following.new(follower_id: current_user.id, followed_id: params[:followed_id])
 
     if @following.save
-      redirect_to request.referer, notice: "Successfully followed #{@followed.fullname}"
+      redirect_to request.referer, notice: 'Successfully followed'
     else
       render template: 'opinions/index', notice: 'Could not create following, most probably it already exists.'
     end
@@ -13,6 +12,7 @@ class FollowingsController < ApplicationController
   def destroy
     @following = Following.find_by(followed_id: params[:followed_id])
 
-    redirect_to request.referer, notice: 'Succesfully unfollowed!' if @following.destroy!
+    @following.destroy
+    redirect_to request.referer, notice: 'Succesfully unfollowed!'
   end
 end
