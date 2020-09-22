@@ -257,7 +257,7 @@ DEPENDENCIES
   mini_magick
   pg
   puma (~> 4.1)
-  rails (~> 6.0.3, >= 6.0.3.2)
+  rails (~> 6.0.3)
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.81.0)
   sass-rails (>= 6)

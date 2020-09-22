@@ -13,6 +13,14 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_presence_of(:fullname) }
     it { should validate_uniqueness_of(:username) }
+
+    it { is_expected.to validate_content_type_of(:photo).allowing('image/png', 'image/jpeg') }
+    it { is_expected.to validate_content_type_of(:photo).rejecting('text/plain', 'text/xml') }
+    it { is_expected.to validate_size_of(:photo).less_than(3.megabytes) }
+
+    it { is_expected.to validate_content_type_of(:cover_image).allowing('image/png', 'image/jpeg') }
+    it { is_expected.to validate_content_type_of(:cover_image).rejecting('text/plain', 'text/xml') }
+    it { is_expected.to validate_size_of(:cover_image).less_than(4.megabytes) }
   end
 
   describe 'scopes' do
@@ -44,8 +52,8 @@ RSpec.describe User, type: :model do
     end
 
     it 'can upload an avatar' do
-      file = File.open(Rails.root.join('app', 'assets', 'images', 'placeholder.jpg'))
-      attached = @user1.photo.attach(io: file, filename: 'placeholder.jpg', content_type: 'image/jpg')
+      file = File.open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
+      attached = @user1.photo.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
       expect(attached).to eq(true)
     end
 
