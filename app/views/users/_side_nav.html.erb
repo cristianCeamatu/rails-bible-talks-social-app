@@ -1,0 +1,32 @@
+<aside class="side-nav w-25">
+  <!-- User profile -->
+  <div class="user-profile">
+    <div class="user-profile-header d-flex align-items-center">
+      <%= image_tag user_image(current_user, 50), class: 'rounded-circle' %>
+
+      <p>
+        <%= link_to current_user.fullname, user_path(current_user) %>
+        <br>
+        <%= link_to 'Sign out', sign_out_path, class: 'text-danger' %>
+      </p>
+    </div>
+    <div class="user-profile-activity">
+      <div class="user-profile-activity-item">
+        <p><%= current_user.followings.size %></p>
+        <p>Following</p>
+      </div>
+      <div class="user-profile-activity-item">
+        <p><%= current_user.followers.size %></p>
+        <p>Followers</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side-nav links -->
+  <nav class="side-nav">
+    <ul class="side-nav-items">
+      <li class="side-nav-item"><%= link_to "Home", root_path %></li>
+      <li class="side-nav-item"><%= link_to "Profile", user_path(current_user) %></li>
+    </ul>
+  </nav>
+</aside>

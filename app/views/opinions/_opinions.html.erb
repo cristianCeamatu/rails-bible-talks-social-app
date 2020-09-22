@@ -1,0 +1,22 @@
+<div class="bible-talks-container">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active mr-auto"><%= opinions.count %> new talks</li>
+  </ol>
+  <div class="">
+    <% opinions.each do |opinion| %>
+      <article class="card w-100 mb-4">
+        <div class="card-body">
+          <div class="bible-verse-header d-flex align-items-center justify-content-between">
+            <h5 class="card-title"><%= link_to opinion.author.fullname, opinion.author %></h5>
+            <p class="card-info"><%= time_ago_in_words(opinion.created_at) %></p>
+          </div>
+          <p class="card-text"><%= opinion.text %></p>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</div>
+
+<div class="bible-talks-view-more">
+  <p><%= link_to 'VIEW MORE', root_path %></p>
+</div>

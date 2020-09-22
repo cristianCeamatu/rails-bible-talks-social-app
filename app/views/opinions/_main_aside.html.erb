@@ -1,0 +1,39 @@
+<aside class="main-aside-container w-25">
+  <div class="main-aside-header">
+    <h3 class="aside-title">WHO TO FOLLOW</h3>
+    <i class="fab fa-phone"></i>
+  </div>
+
+  <div class="main-aside-users">
+    <% users.with_attached_photo.each do |user| %>
+      <div class="main-aside-user d-flex align-items-center">
+        <%= image_tag user_image(user, 50), class: 'rounded-circle' %>
+
+        <div class="main-aside-user-details">
+          <p><%= link_to user.fullname, user_path(user) %></p>
+          
+          <% if user.followers.any? %>
+            <p>Followed by <%= link_to user.followers.last.fullname, user_path(user.followers.last) %></p>
+            <% else %>
+            <p>Not followed by anybody</p>
+          <% end %>
+        </div>
+
+        <div class="follow-form">
+          <% if current_user != user %>
+            <% unless current_user.follows?(user) %>
+              <%= render 'followings/follow_form', user: user %>
+              <% else %>
+              <%= render 'followings/unfollow_form', user: user %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <ul class="main-aside-links list-unstyled d-flex">
+    <li><%= link_to 'Popular account', root_path, class: 'mr-3' %></li>
+    <li><%= link_to 'Find friends', root_path %></li>
+  </ul>
+</aside>

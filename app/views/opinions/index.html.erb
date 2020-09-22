@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="d-flex">
+    <%= render 'users/side_nav' %>
+
+    <main class="w-75">
+      <%= render 'users/top_nav' %>
+
+      <div class="main-container d-flex align-items-start">
+        <!-- Bibble Talks -->
+        <section class="bible-talks w-75">
+          <div class="bible-talk-form">
+            <%= render 'form' %>
+          </div>
+          <%= render 'opinions', opinions: @opinions %>
+        </section>
+
+        <%= render 'main_aside', users: @users %>
+      </div>
+    </main>
+  </div>
+</div>

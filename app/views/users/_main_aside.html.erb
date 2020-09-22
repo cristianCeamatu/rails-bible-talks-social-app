@@ -1,0 +1,70 @@
+<aside class="main-aside-container w-25">
+  <section class="main-aside-profile text-center">
+    <ul class="main-aside-profile d-flex align-items-center justify-content-center list-unstyled">
+      <li><i class="fas fa-plus"></i>X</li>
+      <li><%= image_tag user_image(user, 80), class: 'rounded-circle' %></li>
+      <li><i class="fas fa-plus"></i>X</li>
+    </ul>
+
+    <div class="main-aside-profile-details">
+      <h3><%= user.fullname %></h3>
+      <p>@<%= user.username %></p>
+    </div>
+
+    <ul class="main-aside-profile-activity list-unstyled d-flex align-items-center justify-content-around">
+      <li>
+        <%= user.opinions.size %>
+        <br>
+        <span>Worships</span>
+      </li>
+      <li>
+        <%= user.followed_users.size %>
+        <br>
+        <span>Following</span>
+      </li>
+      <li>
+        <%= user.followers.size %>
+        <br>
+        <span>Followers</span>
+      </li>
+    </ul>
+    
+    <% if current_user != user %>
+      <% unless current_user.follows?(user) %>
+        <%= render 'followings/follow_form', user: user %>
+        <% else %>
+        <%= render 'followings/unfollow_form', user: user %>
+      <% end %>
+    <% end %>
+  </section>
+
+  <div class="main-aside-followed-by-container">
+    <div class="main-aside-header">
+      <h3 class="aside-title">FOLLOWED BY</h3>
+      <i class="fab fa-phone"></i>
+    </div>
+
+    <div class="main-aside-users">
+      <% user.followers.each do |follower| %>
+        <div class="main-aside-user d-flex align-items-center justify-content-between">
+          <div class="classmain-aside-user-details d-flex align-items-center">
+            <%= image_tag user_image(follower, 50), class: 'rounded-circle' %>
+            <div>
+              <p><%= link_to follower.fullname, user_path(follower) %></p>
+              <p>@<%= follower.username %></p>
+            </div>
+          </div>
+
+          <% if current_user != follower %>
+            <% unless current_user.follows?(follower) %>
+              <%= render 'followings/follow_form', user: follower %>
+              <% else %>
+              <%= render 'followings/unfollow_form', user: follower %>
+            <% end %>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</aside>

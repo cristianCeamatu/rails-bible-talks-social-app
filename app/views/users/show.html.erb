@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="d-flex">
+    <%= render 'side_nav' %>
+
+    <main class="w-75">
+      <%= render 'top_nav' %>
+
+      <div class="main-container d-flex align-items-start">
+        <!-- Bibble Talks -->
+        <section class="bible-talks w-75">
+          <div class="showcase w-100">
+          <%= image_tag user_cover_image(@user), height: 400, class: 'image-fluid w-100' %>
+          </div>
+          <%= render 'opinions/opinions', opinions: @user.opinions %>
+        </section>
+
+        <%= render 'main_aside', user: @user %>
+      </div>
+    </main>
+  </div>
+</div>

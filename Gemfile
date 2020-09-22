@@ -23,29 +23,25 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 # Create env variables, run bundle exec figaro:install
 gem 'figaro'
+gem 'pg'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'gravatar_image_tag'
 gem 'simple_form'
-gem 'bootstrap', '~> 5.0.0.alpha1'
+
+# Processing images
+gem 'image_processing'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
-
   gem 'rspec-rails', '~> 4.0.1'
-  gem "database_cleaner"
 
   # Rails console beautifier
   gem 'hirb'
-end
-
-group :production do
-  gem 'pg'
 end
 
 group :development do
@@ -59,10 +55,13 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
-  gem 'shoulda-matchers', '~> 4.0'
   gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'webdrivers'
 end
+
+# required after installing active_storage and trying to run rails db:migrate
+gem 'xmlrpc'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
