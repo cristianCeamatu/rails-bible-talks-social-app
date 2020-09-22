@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one_attached :cover_image
 
   validates :username, presence: true, length: { minimum: 2, maximum: 20 }
-  validates_uniqueness_of :username, on: :create, message: 'already taken, please choose another one.'
+  validates_uniqueness_of :username, on: :create
   validates :fullname, presence: true, length: { minimum: 2, maximum: 40 }
 
   scope :all_except, ->(user) { where.not(username: user.username) }
@@ -16,8 +16,4 @@ class User < ApplicationRecord
   def follows?(user)
     followed_users.include?(user)
   end
-
-  # TODO
-  # create followers method
-  # create followings method
 end
