@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:opinions, :followed_users, :followers, photo_attachment: :blob).find(params[:id])
+    @user = User.includes(:opinions, :followed_users, :followers, cover_image_attachment: :blob, photo_attachment: :blob).find(params[:id]) # rubocop: disable Layout/LineLength
   end
 
   def create

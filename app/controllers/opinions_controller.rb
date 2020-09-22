@@ -67,9 +67,8 @@ class OpinionsController < ApplicationController
   end
 
   def require_login
-    unless logged_in?
-      flash.notice = 'You must be logged in to access this section!'
-      redirect_to sign_in_path
-    end
+    return true if logged_in?
+
+    redirect_to sign_in_path, notice: 'You must be logged in to access this section!'
   end
 end
