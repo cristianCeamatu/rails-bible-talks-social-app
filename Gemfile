@@ -28,13 +28,16 @@ gem 'pg'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'gravatar_image_tag'
 gem 'simple_form'
+
+# Processing images
+gem 'image_processing'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
-  gem 'database_cleaner'
   gem 'rspec-rails', '~> 4.0.1'
 
   # Rails console beautifier
@@ -56,6 +59,9 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'webdrivers'
 end
+
+# required after installing active_storage and trying to run rails db:migrate
+gem 'xmlrpc'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

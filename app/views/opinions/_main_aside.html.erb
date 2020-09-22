@@ -6,16 +6,26 @@
 
   <div class="main-aside-users">
     <% users.each do |user| %>
-      <div class="main-aside-user">
-        <%= image_tag 'https://bulma.io/images/placeholders/64x64.png', size: '64x64' , alt: "Go Home", class: "rounded" %>
+      <div class="main-aside-user d-flex align-items-center">
+        <%= image_tag user_image(user, 50), class: 'rounded-circle' %>
 
         <div class="main-aside-user-details">
           <p><%= link_to user.fullname, user_path(user) %></p>
           
-          <% if user.followings.any? %>
-            <p>Followed by <%= link_to user.followings.first.follower.fullname, user_path(user.followings.first.follower) %></p>
+          <% if user.followers.any? %>
+            <p>Followed by <%= link_to user.followers.last.fullname, user_path(user.followers.last) %></p>
             <% else %>
             <p>Not followed by anybody</p>
+          <% end %>
+        </div>
+
+        <div class="follow-form">
+          <% if current_user != user %>
+            <% unless current_user.follows?(user) %>
+              <%= render 'followings/follow_form', user: user %>
+              <% else %>
+              <%= render 'followings/unfollow_form', user: user %>
+            <% end %>
           <% end %>
         </div>
       </div>

@@ -1,0 +1,10 @@
+<div class="user-follow-form">
+  <%= form_with(model: @following, url: followings_path, local: true) do |form| %>
+    <div>
+      <%= form.hidden_field :followed_id, value: user.id %>
+      <div class="actions">
+        <%= form.submit '+', class: 'btn btn-success h3' %>
+      </div>
+    </div>
+  <% end %>
+</div>

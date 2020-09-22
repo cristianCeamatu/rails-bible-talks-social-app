@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new'
   get 'sign_in', to: 'sessions#new'
   get 'sign_out', to: 'sessions#destroy'
-  get '*path' => redirect('/sign_in')
+  # get '*path' => redirect('/sign_in')
 end

@@ -1,6 +1,7 @@
 class OpinionsController < ApplicationController
   before_action :require_login
   before_action :set_opinion, only: %i[show edit update destroy]
+
   # GET /opinions
   def index
     @opinions = Opinion.all.order('created_at DESC')
