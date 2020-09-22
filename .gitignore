@@ -42,3 +42,5 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+
+/config/credentials/test.key

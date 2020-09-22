@@ -1,6 +1,15 @@
 <section class="sign-up">
   <h1>Create a new User</h1>
   <p>Please fill in all the required fields below</p>
+  
+  <% if @user.errors.any? %>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+  
 
   <div class="sign-up-form">
     <%= simple_form_for @user do |f| %>
