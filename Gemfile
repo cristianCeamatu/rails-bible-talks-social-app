@@ -18,9 +18,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 # Create env variables, run bundle exec figaro:install
 gem 'figaro'
 gem 'pg'
@@ -31,7 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'gravatar_image_tag'
 gem 'simple_form'
 
-# Processing images
+# Processing images, Use Active Storage variant
 gem 'image_processing'
 gem 'mini_magick'
 

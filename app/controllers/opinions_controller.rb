@@ -25,11 +25,9 @@ class OpinionsController < ApplicationController
   def create
     @opinion = current_user.opinions.new(opinion_params)
 
-    if @opinion.save
-      redirect_to root_path, notice: 'Bible talk was successfully created.'
-    else
-      render :new, notice: 'Bible talk not added.'
-    end
+    notice = @opinion.save ? 'Bible talk was successfully created.' : 'Bible talk not added.'
+
+    redirect_to root_path, notice: notice
   end
 
   # PATCH/PUT /opinions/1
