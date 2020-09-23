@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TemplateRailsStylelineRubocop</title>
+    <title>Bible talks</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.jpg' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
   <body>
-    <% if flash.notice %>
-      <p><%= flash.notice %></p>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, class: "alert alert-info alert-dismissable text-center rounded-0") do %>
+        <%= value %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <% end %>
     <% end %>
-      <%= yield %>
-    </div>
+
+    <%= yield %>
   </body>
 </html>

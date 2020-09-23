@@ -1,3 +1,13 @@
 // Place all the styles related to the Opinions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.avatar-big {
+  width: 60px;
+  height: 60px;
+}
+
+.aside-left {
+  .logged-user-name {
+    font-size: 14px;
+  }
+}
