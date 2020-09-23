@@ -107,10 +107,10 @@
       </section>
 
       <!-- Main aside right -->
-      <aside class="main-content-aside col-3">
+      <aside class="main-content-aside col-3 pl-0">
         <!-- Whot to follow -->
-        <div class="who-to-follow">
-          <div class="who-to-follow-header d-flex align-items-center justify-content-between py-4 pr-3">
+        <div class="who-to-follow pl-3">
+          <div class="who-to-follow-header d-flex align-items-center justify-content-between py-3 pr-3">
             <p class="mb-0 text-muted font-weight-bold">WHO TO FOLLOW</p>
             <%= link_to root_path, class: 'text-muted' do %>
               <%= fa_icon 'refresh' %>
@@ -135,26 +135,26 @@
             </article>
           </div>
 
-          <ul class="who-to-follow-links">
+          <ul class="who-to-follow-links list-unstyled font-14 d-flex">
             <li><%= link_to 'Popular account', root_path %></li>
-            <li><%= link_to 'Find friends', root_path %></li>
+            <li><%= link_to 'Find friends', root_path, class: 'ml-2' %></li>
           </ul>
         </div>
 
         <!-- Trending -->
-        <div class="trending">
-          <div class="trending-header">
-            <h3 class="trending-title">TRENDING</h3>
-            <%= link_to root_path do %>
-              O
+        <div class="trending border-top pt-4">
+          <div class="trending-header px-3 d-flex align-items-center justify-content-between mb-3">
+            <p class="trending-title mb-0 text-muted font-weight-bold">TRENDING</p>
+            <%= link_to root_path, class: 'text-muted' do %>
+              <%= fa_icon 'cog' %>
             <% end %>
           </div>
 
-          <ul class="trending-items">
-            <li><%= link_to '#bible', root_path %></li>
-            <li><%= link_to '#verses', root_path %></li>
-            <li><%= link_to '#praiseLord', root_path %></li>
-            <li><%= link_to '#love', root_path %></li>
+          <ul class="trending-items border-top list-unstyled mx-3">
+            <li class="my-3"><%= link_to '#bible', root_path %></li>
+            <li class="my-3"><%= link_to '#verses', root_path %></li>
+            <li class="my-3"><%= link_to '#praiseLord', root_path %></li>
+            <li class="my-3"><%= link_to '#love', root_path %></li>
           </ul>
         </div>
       </aside>
