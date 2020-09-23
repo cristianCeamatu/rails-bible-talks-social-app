@@ -17,8 +17,17 @@
 @import "font-awesome";
 @import 'variables';
 
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 img {
   object-fit: cover;
+}
+
+a {
+  color: inherit;
 }
 
 .font-14 {
@@ -33,12 +42,20 @@ img {
   font-size: 10px;
 }
 
+.text-dark {
+  color: #363636;
+}
+
+.text-gray {
+  color: lighten(#363636, 45%);
+}
+
 .alert-dismissable {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 5;
 }
 
@@ -47,12 +64,18 @@ img {
   height: 50px;
 }
 
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
 .aside-left {
   color: lighten($side-nav-text-color, 40%);
   background-color: $side-nav-color;
-  position: fixed;
+  position: sticky;
   top: 0;
   bottom: 0;
+  height: 100vh;
 
   .logged-user-social-count,
   a {
@@ -67,4 +90,16 @@ img {
 
 .top-nav {
   background-color: $top-nav-color;
+}
+
+main {
+  background-color: $main-content-bg-color;
+
+  .nav-tabs .active {
+    border-bottom: 2px solid darken($top-nav-color, 20%);
+  }
+
+  .opinions-feed-item {
+    line-height: 0.9;
+  }
 }

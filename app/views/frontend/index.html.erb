@@ -57,47 +57,52 @@
         </ul>
       </nav>
     </div>
+
     <!-- Main content section -->
     <div class="main-content-feed row">
-      <section class="opinions col-9">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#">Tweets</a></li>
-          <li><a href="#">Menu 1</a></li>
-          <li><a href="#">Menu 2</a></li>
+      <section class="opinions col-9 px-0 border-right">
+        <ul class="nav nav-tabs border-bottom text-uppercase font-weight-bold font-14">
+          <li class="active p-4"><%= link_to 'Talks', root_path, class: 'pl-2 text-dark' %></li>
+          <li class="p-4"><a href="#" class="text-muted">Photos</a></li>
+          <li class="p-4"><a href="#" class="text-muted">Videos</a></li>
         </ul>
 
         <!-- New opinion form -->
-        <%= simple_form_for(@opinion, class: 'd-flex') do |f| %>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-          <h4>Share your Bible talk</h4>
-          <div class="form-group">
-            <%= f.input :text, label: false, class: 'form-control' %>
-          </div>
+        <div class="new-opinion-form px-4 py-4 border bg-white m-4 rounded shadow-sm">
+          <%= simple_form_for(@opinion, class: 'd-flex') do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+            <h4 class="h4 text-muted">Share your Bible talk</h4>
+            <div class="form-group">
+              <%= f.input :text, label: false, input_html: { rows: 1 }, class: 'form-control' %>
+            </div>
 
-          <%= f.button :submit, class: 'btn btn-primary' %>
-        <% end %>
+            <div class="text-right">
+              <%= f.button :submit, class: 'btn btn-primary d-inline-block' %>
+            </div>
+          <% end %>
+        </div>
 
         <!-- Opinions feed -->
-        <div class="opinions-feed">
-          <div class="opinions-feed-title">
-            4 NEW BIBLE TALKS
+        <div class="opinions-feed px-4 py-4 border bg-white m-4 rounded shadow-sm">
+          <div class="opinions-feed-title text-primary text-uppercase font-weight-bold">
+            <p class="pb-4 px-2 border-bottom">4 NEW BIBLE TALKS</p>
           </div>
 
           <div class="opinions-feed-container">
-            <article class="opinions-feed-item">
-              <%= image_tag 'avatar.jpg' %>
-              <div class="opinions-feed-item-details">
-                <div class="opinions-feed-item-header">
-                  <h5 class="opinions-feed-item-author">Miley Ray Cyrus</h5>
-                  <p class="opinions-feed-item-date">23 Jan</p>
+            <article class="opinions-feed-item d-flex align-items-center my-4">
+              <%= image_tag 'avatar.jpg', class: 'avatar-big rounded' %>
+              <div class="opinions-feed-item-details pl-2 w-100">
+                <div class="opinions-feed-item-header d-flex align-items-center justify-content-between">
+                  <h5 class="opinions-feed-item-author font-14 mb-0 text-dark text-uppercase font-weight-bold">Miley Ray Cyrus</h5>
+                  <p class="opinions-feed-item-date text-gray font-12 mb-0">23 Jan</p>
                 </div>
-                <p class="opinions-feed-item-text">Here’s a quick example to demonstrate Bootstrap’s form styles. Keep reading for documentation on required classes, form layout, and more.</p>
+                <p class="opinions-feed-item-text mb-0 text-gray">Here’s a quick example to demonstrate Bootstrap’s form styles. Keep reading for documentation on required classes, form layout, and more.</p>
               </div>
             </article>
           </div>
 
-          <p class="opinion-feed-view-more"><%= link_to 'VIEW MORE', root_path %></p>
+          <p class="opinion-feed-view-more mt-5 p-2 text-center text-primary text-uppercase font-weight-bold"><%= link_to 'VIEW MORE', root_path %></p>
         </div>
       </section>
 
@@ -105,27 +110,27 @@
       <aside class="main-content-aside col-3">
         <!-- Whot to follow -->
         <div class="who-to-follow">
-          <div class="who-to-follow-header">
-            <p>WHO TO FOLLOW</p>
-            <%= link_to root_path do %>
-              O
+          <div class="who-to-follow-header d-flex align-items-center justify-content-between py-4 pr-3">
+            <p class="mb-0 text-muted font-weight-bold">WHO TO FOLLOW</p>
+            <%= link_to root_path, class: 'text-muted' do %>
+              <%= fa_icon 'refresh' %>
             <% end %>
           </div>
 
           <div class="who-to-follow-container">
-            <article class="opinions-feed-item">
-              <%= image_tag 'avatar.jpg' %>
-              <div class="who-to-follow-item-details">
-                <h5 class="who-to-follow-item-author">Miley Ray Cyrus</h5>
-                <p class="who-to-follow-connection">Followed by <%= link_to 'Cris Lore', root_path %></p>
+            <article class="opinions-feed-item d-flex align-items-center my-3">
+              <%= image_tag 'avatar.jpg', class: 'avatar rounded-circle' %>
+              <div class="who-to-follow-item-details pl-2">
+                <h5 class="who-to-follow-item-author font-14 text-dark mb-0">Miley Ray Cyrus</h5>
+                <p class="who-to-follow-connection font-12 text-gray mb-1">Followed by <%= link_to 'Cris Lore', root_path %></p>
               </div>
             </article>
             
-            <article class="opinions-feed-item">
-              <%= image_tag 'avatar.jpg' %>
-              <div class="who-to-follow-item-details">
-                <h5 class="who-to-follow-item-author">Miley Ray Cyrus</h5>
-                <p class="who-to-follow-connection">Not followed by anybody</p>
+            <article class="opinions-feed-item d-flex align-items-center my-3">
+              <%= image_tag 'avatar.jpg', class: 'avatar rounded-circle' %>
+              <div class="who-to-follow-item-details pl-2">
+                <h5 class="who-to-follow-item-author font-14 text-dark mb-0">Miley Ray Cyrus</h5>
+                <p class="who-to-follow-connection font-12 text-gray mb-1">No followers</p>
               </div>
             </article>
           </div>
