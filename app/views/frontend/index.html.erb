@@ -1,47 +1,59 @@
 <div class="row">
   <!-- Side nav left -->
-  <aside class="aside-left border col-2 pr-0">
+  <aside class="aside-left col-2 pr-0 py-2">
     <!-- Logged user -->
-    <div class="logged-user p-2 border">
-      <div class="logged-user-details d-flex align-items-center">
+    <div class="logged-user p-3">
+      <div class="logged-user-details d-flex align-items-center mb-0">
         <%= image_tag 'avatar.jpg', class: 'avatar-big rounded' %>
-        <h3 class="logged-user-name">Cristian Ceamatu Viorel</h3>
+        <h3 class="logged-user-name font-12 pl-2 text-uppercase">Cristian Ceamatu Viorel<%= link_to 'Sign out', sign_out_path, class: 'text-danger font-10 d-block' %></h3>
       </div>
 
-      <div class="logged-user-social row">
-        <div class="col-6">
-          <p class="logged-user-social-count">184</p>
-          <p class="logged-user-social-type">Following</p>
+      <div class="logged-user-social row text-center">
+        <div class="col-6 py-4">
+          <p class="logged-user-social-count mb-0 h5">184</p>
+          <p class="logged-user-social-type font-12 mb-0">Following</p>
         </div>
-        <div class="col-6">
-          <p class="logged-user-social-count">184</p>
-          <p class="logged-user-social-type">Followers</p>
+        <div class="col-6 py-4">
+          <p class="logged-user-social-count mb-0 h5">184</p>
+          <p class="logged-user-social-type font-12 mb-0">Followers</p>
         </div>
       </div>
     </div>
 
-    <nav class="nav-left">
-      <ul class="nav-left-items">
-        <li class="nav-left-item"><%= link_to 'HOME', root_path %></li>
-        <li class="nav-left-item"><%= link_to 'PROFILE', root_path %></li>
+    <nav class="nav-left pl-3">
+      <ul class="nav-left-items list-unstyled mb-0">
+        <li class="nav-left-item py-2">
+          <%= link_to root_path do %>
+            <%= fa_icon "home" %> HOME 
+          <% end %>
+        </li>
+        <li class="nav-left-item py-2">
+          <%= link_to root_path do %>
+            <%= fa_icon "user" %> PROFILE 
+          <% end %>
+        </li>
       </ul>
     </nav>
   </aside>
 
   <!-- Main content -->
-  <main class="border col-10">
+  <main class="col-10">
     <div class="row">
       <!-- Main content top navigation -->
-      <nav class="top-nav col-12">
-        <ul class="nav-top-left">
-          <li class="nav-top-left-item"><%= link_to 'TW', root_path %></li>
+      <nav class="top-nav col-12 d-flex align-items-center justify-content-between p-3">
+        <ul class="nav-top-left list-unstyled mb-0">
+          <li class="nav-top-left-item">
+            <%= link_to root_path, class: 'text-white font-weight-bold' do %>
+              <%= fa_icon "book" %> Bible Talks 
+            <% end %>
+          </li>
         </ul>
 
-        <ul class="nav-top-right">
-          <li class="nav-top-right-item"><%= link_to 'TW', root_path %></li>
-          <li class="nav-top-right-item"><%= link_to 'TW', root_path %></li>
-          <li class="nav-top-right-item"><%= link_to 'TW', root_path %></li>
-          <li class="nav-top-right-item"><%= link_to 'TW', root_path %></li>
+        <ul class="nav-top-right list-unstyled d-flex align-items-center mb-0">
+          <li class="nav-top-right-item px-3"><%= link_to root_path, class: 'text-white font-weight-bold' do %><%= fa_icon "pencil" %><% end %></li>
+          <li class="nav-top-right-item px-3"><%= link_to root_path, class: 'text-white font-weight-bold' do %><%= fa_icon "envelope" %><% end %></li>
+          <li class="nav-top-right-item px-3"><%= link_to root_path, class: 'text-white font-weight-bold' do %><%= fa_icon "search" %><% end %></li>
+          <li class="nav-top-right-item px-3"><%= link_to root_path, class: 'text-white font-weight-bold' do %><%= fa_icon "cog" %><% end %></li>
         </ul>
       </nav>
     </div>

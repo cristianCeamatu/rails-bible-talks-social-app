@@ -13,15 +13,58 @@
  *= require_tree .
  *= require_self
  */
+
+@import "font-awesome";
+@import 'variables';
+
 img {
   object-fit: cover;
 }
 
- .alert-dismissable {
+.font-14 {
+  font-size: 14px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+.alert-dismissable {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100vw;
   z-index: 5;
+}
+
+.avatar-big {
+  width: 50px;
+  height: 50px;
+}
+
+.aside-left {
+  color: lighten($side-nav-text-color, 40%);
+  background-color: $side-nav-color;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+
+  .logged-user-social-count,
+  a {
+    color: lighten($side-nav-text-color, 60%);
+  }
+
+  a:hover {
+    color: lighten($side-nav-text-color, 40%);
+    text-decoration: none;
+  }
+}
+
+.top-nav {
+  background-color: $top-nav-color;
 }

@@ -31,6 +31,7 @@ gem 'simple_form'
 # Processing images, Use Active Storage variant
 gem 'image_processing'
 gem 'mini_magick'
+gem "font-awesome-rails"
 
 gem 'active_storage_validations'
 
