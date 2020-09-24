@@ -1,23 +1,23 @@
-<section class="sign-up">
-  <h1>Sign in</h1>
-  <p>Please fill in the username your registered with your account:</p>
+<div class="sign-up-wrapper pt-5">
+  <section class="sign-up border shadow mx-auto my-5 p-4">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <h1 class="col-12 h3">Sign in</h1>
+        <p class="col-12">Please fill in the username your registered with your account:</p>
 
-  <div class="sign-up-form">
-    <%= form_with(url: sessions_path, local: true) do |f| %>
-      <div class="forms mb-4">
-        <div class="row">
-          <div class="col-md-6 offset-3">
+        <div class="sign-up-form col-12">
+          <%= form_with(url: sessions_path, local: true) do |f| %>
             <div class="form-group">
               <%= f.label :username %>
               <%= f.text_field :username , class: 'form-control' %>
             </div>
-            <div class="actions mt-3">
-              <%= f.submit 'Sign In', class: 'btn btn-primary btn-block' %>
-            </div>
-          </div>
+            <%= f.submit 'Sign In', class: 'btn btn-primary btn-block mt-3' %>
+          <% end %>
+          <p class="text-center mt-3">Already have an account?<%= link_to ' Sign up', sign_up_path %></p>
         </div>
       </div>
-    <% end %>
-    <p class="text-center"><%= link_to 'Sign up', sign_up_path, class: 'h3' %></p>
-  </div>
-</section>
+    </div>
+  </section>
+</div>
+
+

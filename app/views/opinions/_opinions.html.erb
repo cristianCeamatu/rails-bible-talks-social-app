@@ -1,22 +1,25 @@
-<div class="bible-talks-container">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active mr-auto"><%= opinions.count %> new talks</li>
-  </ol>
-  <div class="">
+<!-- Opinions feed -->
+<div class="opinions-feed px-4 py-4 border bg-white m-4 rounded shadow-sm">
+  <div class="opinions-feed-title text-primary text-uppercase font-weight-bold">
+    <p class="pb-4 px-2 border-bottom text-uppercase"><%= title %></p>
+  </div>
+
+  <div class="opinions-feed-container">
     <% opinions.each do |opinion| %>
-      <article class="card w-100 mb-4">
-        <div class="card-body">
-          <div class="bible-verse-header d-flex align-items-center justify-content-between">
-            <h5 class="card-title"><%= link_to opinion.author.fullname, opinion.author %></h5>
-            <p class="card-info"><%= time_ago_in_words(opinion.created_at) %></p>
+      <article class="opinions-feed-item d-flex align-items-center my-4">
+        <%= image_tag user_image(opinion.author), class: 'avatar-big rounded' %>
+        <div class="opinions-feed-item-details pl-2 w-100">
+          <div class="opinions-feed-item-header d-flex align-items-center justify-content-between mb-1">
+            <h5 class="opinions-feed-item-author font-14 mb-0 text-dark text-uppercase font-weight-bold">
+              <%= link_to opinion.author.fullname, opinion.author %>
+            </h5>
+            <p class="opinions-feed-item-date text-gray font-12 mb-0"><%= time_ago_in_words(opinion.created_at) %></p>
           </div>
-          <p class="card-text"><%= opinion.text %></p>
+          <p class="opinions-feed-item-text mb-0 text-gray"><%= opinion.text %></p>
         </div>
       </article>
     <% end %>
   </div>
-</div>
 
-<div class="bible-talks-view-more">
-  <p><%= link_to 'VIEW MORE', root_path %></p>
+  <p class="opinion-feed-view-more mt-5 p-2 text-center text-primary text-uppercase font-weight-bold"><%= link_to 'VIEW MORE', root_path %></p>
 </div>

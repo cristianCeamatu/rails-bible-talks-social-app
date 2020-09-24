@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.includes(:opinions, :followed_users, :followers, cover_image_attachment: :blob, photo_attachment: :blob).find(params[:id]) # rubocop: disable Layout/LineLength
+    @opinion = Opinion.new
   end
 
   def create

@@ -29,6 +29,7 @@ gem 'gravatar_image_tag'
 gem 'simple_form'
 
 # Processing images, Use Active Storage variant
+gem 'font-awesome-rails'
 gem 'image_processing'
 gem 'mini_magick'
 

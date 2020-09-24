@@ -1,21 +1,34 @@
-<div class="container-fluid">
-  <div class="d-flex">
-    <%= render 'side_nav' %>
+<div class="row mr-0">
+  <%= render 'side_nav' %>
 
-    <main class="w-75">
-      <%= render 'top_nav' %>
+  <!-- Main content -->
+  <main class="col-10">
+    <div class="row">
+      <%= render 'users/top_nav' %>
+    </div>
 
-      <div class="main-container d-flex align-items-start">
-        <!-- Bibble Talks -->
-        <section class="bible-talks w-75">
-          <div class="showcase w-100">
-          <%= image_tag user_cover_image(@user), height: 400, class: 'image-fluid w-100' %>
-          </div>
-          <%= render 'opinions/opinions', opinions: @user.opinions %>
-        </section>
+    <!-- Main content section -->
+    <div class="main-content-feed row">
+      <section class="opinions col-9 px-0">
+        <div class="showcase">
+          <%= image_tag user_cover_image(@user), class: 'img-fluid user-cover-image' %>
+        </div>
 
-        <%= render 'main_aside', user: @user %>
-      </div>
-    </main>
-  </div>
+        <ul class="nav nav-tabs border-bottom text-uppercase font-weight-bold font-14">
+          <li class="active p-4"><%= link_to 'Talks', root_path, class: 'pl-2 text-dark' %></li>
+          <li class="p-4"><a href="#" class="text-muted">PHOTOS</a></li>
+          <li class="p-4"><a href="#" class="text-muted">FOLLOWING</a></li>
+          <li class="p-4"><a href="#" class="text-muted">FOLLOWERS</a></li>
+          <li class="p-4"><a href="#" class="text-muted">FAVORITES</a></li>
+          <li class="p-4"><a href="#" class="text-muted">LISTS</a></li>
+        </ul>
+
+        <%= render 'opinions/form' %>
+
+        <%= render 'opinions/opinions', opinions: @user.opinions, title: "All talks by #{@user.username}" %>
+      </section>
+
+      <%= render 'user_show_aside', user: @user %>
+    </div>
+  </main>
 </div>

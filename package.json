@@ -4,6 +4,7 @@
   "scripts": {
     "stylelint": "npx stylelint \"**/*.{css,scss}\"",
     "rubocop": "rubocop",
+    "fix": "npx stylelint --fix \"**/*.{css,scss}\" && rubocop -A && npm run test",
     "test": "npx stylelint \"**/*.{css,scss}\" && rubocop"
   },
   "dependencies": {

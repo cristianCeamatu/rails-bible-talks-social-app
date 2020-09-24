@@ -1,3 +1,26 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.sign-up-wrapper {
+  background: rgb(81, 165, 228);
+  background: linear-gradient(90deg, rgba(81, 165, 228, 0.9444152661064426) 0%, rgba(81, 165, 228, 0.8855917366946778) 35%, rgba(81, 165, 228, 1) 71%, rgba(81, 165, 228, 1) 100%);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+
+  .sign-up {
+    max-width: 600px;
+    background: rgb(237, 237, 237);
+    background: linear-gradient(90deg, rgba(237, 237, 237, 0.9752275910364145) 0%, rgba(237, 237, 237, 0.9780287114845938) 35%, rgba(244, 244, 244, 0.9808298319327731) 100%);
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}

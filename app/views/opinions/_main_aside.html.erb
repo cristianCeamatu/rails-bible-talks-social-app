@@ -1,39 +1,50 @@
-<aside class="main-aside-container w-25">
-  <div class="main-aside-header">
-    <h3 class="aside-title">WHO TO FOLLOW</h3>
-    <i class="fab fa-phone"></i>
-  </div>
+<!-- Main aside right -->
+<aside class="main-content-aside col-3 pl-0">
+  <!-- Whot to follow -->
+  <div class="who-to-follow pl-3">
+    <div class="who-to-follow-header d-flex align-items-center justify-content-between py-3 pr-3">
+      <p class="mb-0 text-muted font-weight-bold">WHO TO FOLLOW</p>
+      <%= link_to root_path, class: 'text-muted' do %>
+        <%= fa_icon 'refresh' %>
+      <% end %>
+    </div>
 
-  <div class="main-aside-users">
-    <% users.with_attached_photo.each do |user| %>
-      <div class="main-aside-user d-flex align-items-center">
-        <%= image_tag user_image(user, 50), class: 'rounded-circle' %>
-
-        <div class="main-aside-user-details">
-          <p><%= link_to user.fullname, user_path(user) %></p>
-          
-          <% if user.followers.any? %>
-            <p>Followed by <%= link_to user.followers.last.fullname, user_path(user.followers.last) %></p>
-            <% else %>
-            <p>Not followed by anybody</p>
-          <% end %>
-        </div>
-
-        <div class="follow-form">
-          <% if current_user != user %>
-            <% unless current_user.follows?(user) %>
-              <%= render 'followings/follow_form', user: user %>
+    <div class="who-to-follow-container">
+      <% users.with_attached_photo.each do |user| %>
+        <article class="opinions-feed-item d-flex align-items-center my-3">
+          <%= image_tag user_image(user), class: 'avatar rounded-circle' %>
+          <div class="who-to-follow-item-details pl-2">
+            <h5 class="who-to-follow-item-author font-14 text-dark mb-0"><%= link_to user.fullname, user_path(user) %></h5>
+            <% if user.followers.any? %>
+              <p class="who-to-follow-connection font-12 text-gray mb-1">Followed by <%= link_to user.followers.last.fullname, user_path(user.followers.last) %></p>
               <% else %>
-              <%= render 'followings/unfollow_form', user: user %>
+              <p class="who-to-follow-connection font-12 text-gray mb-1">No followers</p>
             <% end %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+
+    <ul class="who-to-follow-links list-unstyled font-14 d-flex">
+      <li><%= link_to 'Popular account', root_path %></li>
+      <li><%= link_to 'Find friends', root_path, class: 'ml-2' %></li>
+    </ul>
   </div>
-  
-  <ul class="main-aside-links list-unstyled d-flex">
-    <li><%= link_to 'Popular account', root_path, class: 'mr-3' %></li>
-    <li><%= link_to 'Find friends', root_path %></li>
-  </ul>
+
+  <!-- Trending -->
+  <div class="trending border-top pt-4">
+    <div class="trending-header px-3 d-flex align-items-center justify-content-between mb-3">
+      <p class="trending-title mb-0 text-muted font-weight-bold">TRENDING</p>
+      <%= link_to root_path, class: 'text-muted' do %>
+        <%= fa_icon 'cog' %>
+      <% end %>
+    </div>
+
+    <ul class="trending-items border-top list-unstyled mx-3">
+      <li class="my-3"><%= link_to '#bible', root_path %></li>
+      <li class="my-3"><%= link_to '#verses', root_path %></li>
+      <li class="my-3"><%= link_to '#praiseLord', root_path %></li>
+      <li class="my-3"><%= link_to '#love', root_path %></li>
+    </ul>
+  </div>
 </aside>

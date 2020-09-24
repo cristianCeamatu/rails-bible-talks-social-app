@@ -1,21 +1,29 @@
-<div class="container-fluid">
-  <div class="d-flex">
-    <%= render 'users/side_nav' %>
+<div class="row mr-0">
+  <%= render 'users/side_nav' %>
 
-    <main class="w-75">
+  <!-- Main content -->
+  <main class="col-10">
+    <div class="row">
       <%= render 'users/top_nav' %>
+    </div>
+    
+    <!-- Main content section -->
+    <div class="main-content-feed row mr-0">
+        <section class="opinions col-9 px-0 border-right">
+          <ul class="nav nav-tabs border-bottom text-uppercase font-weight-bold font-14">
+            <li class="active p-4"><%= link_to 'Talks', root_path, class: 'pl-2 text-dark' %></li>
+            <li class="p-4"><a href="#" class="text-muted">Photos</a></li>
+            <li class="p-4"><a href="#" class="text-muted">Videos</a></li>
+          </ul>
 
-      <div class="main-container d-flex align-items-start">
-        <!-- Bibble Talks -->
-        <section class="bible-talks w-75">
-          <div class="bible-talk-form">
-            <%= render 'form' %>
-          </div>
-          <%= render 'opinions', opinions: @opinions %>
+          <%= render 'form' %>
+          
+          <%= render 'opinions', opinions: @opinions, title: "#{@opinions.length} NEW BIBLE TALKS" %>
         </section>
 
         <%= render 'main_aside', users: @users %>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
 </div>
+
