@@ -1,6 +1,6 @@
 class FollowingsController < ApplicationController
   def create
-    @following = Following.new(follower_id: current_user.id, followed_id: params[:followed_id])
+    @following = Following.find_or_initialize_by(follower_id: current_user.id, followed_id: params[:followed_id])
 
     if @following.save
       redirect_to request.referer, notice: "Successfully followed `#{@following.followed.fullname}`"

@@ -7,19 +7,20 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one_attached :cover_image
 
-  validates :username, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :username, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates_uniqueness_of :username, on: :create
   validates :fullname, presence: true, length: { minimum: 2, maximum: 40 }
   validates :photo, content_type: %i[png jpg jpeg],
                     dimension: { width: { min: 50, max: 500 },
-                                 height: { min: 50, max: 500 }, message: 'is not given between dimension' },
-                    size: { less_than: 3.megabytes, message: 'is not given between size' }
+                                 height: { min: 50, max: 500 }, message: 'is not given between dimension. Accepted maximum 500/500' },
+                    size: { less_than: 3.megabytes, message: 'is not given between size. It whould be under 3mb' }
   validates :cover_image, content_type: %i[png jpg jpeg],
                           dimension: { width: { min: 200, max: 1600 },
                                        height: { min: 200, max: 1600 }, message: 'is not given between dimension' },
-                          size: { less_than: 4.megabytes, message: 'is not given between size' }
+                          size: { less_than: 4.megabytes, message: 'is not given between size. It should be under 4mb' }
 
-  scope :all_except, ->(user) { where.not(username: user.username) }
+  scope :all_except, ->(user) { where.not(id: user) }
+  scope :all_not_followed, ->(user) { User.all_except(user.followed_users).where.not(id: user) }
 
   def follows?(user)
     followed_users.include?(user)

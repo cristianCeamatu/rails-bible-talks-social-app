@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "User #{@user.fullname} was successfully logged in."
     else
-      flash.now.alert = 'Login failed, user not found. Please try again or create a new user.'
+      flash.now.notice = 'Login failed, user not found. Please try again or create a new user.'
       render :new
     end
   end

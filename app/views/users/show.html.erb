@@ -9,7 +9,7 @@
 
     <!-- Main content section -->
     <div class="main-content-feed row">
-      <section class="opinions col-9 px-0">
+      <section class="opinions col-9 px-0 border-right">
         <div class="showcase">
           <%= image_tag user_cover_image(@user), class: 'img-fluid user-cover-image' %>
         </div>
@@ -25,7 +25,7 @@
 
         <%= render 'opinions/form' %>
 
-        <%= render 'opinions/opinions', opinions: @user.opinions, title: "All talks by #{@user.username}" %>
+        <%= render 'opinions/opinions', opinions: @user.opinions, title: "All talks by `#{@user.username}`" %>
       </section>
 
       <%= render 'user_show_aside', user: @user %>

@@ -30,10 +30,29 @@
         <% end %>
       </li>
       <li class="nav-left-item py-2">
-        <%= link_to user_path(current_user) do %>
+        <%= link_to edit_user_path(current_user) do %>
           <%= fa_icon "user" %> PROFILE 
         <% end %>
       </li>
     </ul>
   </nav>
+
+    <!-- Following -->
+  <div class="followed-by pl-2">
+    <p class="followed-by-title mb-0 text-muted font-weight-bold py-3">FOLLOWING</p>
+
+    <div class="followed-by-container">
+      <% current_user.followed_users.each do |follower| %>
+        <article class="followed-by d-flex align-items-center justify-content-between py-2">
+          <div class="followed-by-item d-flex align-items-center justify-content-between">
+            <%= image_tag user_image(follower), class: 'avatar rounded-circle' %>
+            <div class="followed-by-details pl-2">
+              <h5 class="followed-by-name font-14 text-dark mb-0"><%= link_to follower.fullname, user_path(follower) %></h5>
+              <p class="followed-by-username font-12 text-gray mb-1">@<%= follower.username %></p>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
 </aside>

@@ -1,0 +1,19 @@
+<div class="row mr-0">
+  <%= render 'side_nav' %>
+
+  <!-- Main content -->
+  <main class="col-10">
+    <div class="row">
+      <%= render 'users/top_nav' %>
+    </div>
+
+    <!-- Main content section -->
+    <div class="main-content-feed row">
+      <div class="col-9 px-0">
+        <%= render 'form', user: @user, button_text: 'Update profile' %>
+      </div>
+      
+      <%= render 'user_show_aside', user: @user %>
+    </div>
+  </main>
+</div>
