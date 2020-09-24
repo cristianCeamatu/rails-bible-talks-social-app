@@ -20,6 +20,7 @@
 * {
   transition: all 0.1s ease-in-out;
 }
+
 body {
   max-width: 1440px;
   width: 100%;
@@ -43,8 +44,8 @@ button {
 button:active,
 button:focus,
 button:hover {
-  outline: none!important;
-  transform: scale(1.10);
+  outline: none !important;
+  transform: scale(1.1);
 }
 
 button:disabled,
@@ -69,7 +70,7 @@ button[disabled] {
 }
 
 .text-gray {
-  color: lighten(#363636, 45%);
+  color: #747474;
 }
 
 .alert-dismissable {
