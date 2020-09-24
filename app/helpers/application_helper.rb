@@ -1,15 +1,15 @@
 module ApplicationHelper
-  def user_image(user, size = 40)
+  def user_image(user)
     if user.photo.attached?
-      user.photo.variant(resize: "#{size}x#{size}!")
+      user.photo
     else
-      gravatar_image_url(user.username, size: size)
+      gravatar_image_url(user.username)
     end
   end
 
-  def user_cover_image(user, width = 640, height = 480)
+  def user_cover_image(user)
     if user.cover_image.attached?
-      user.cover_image.variant(resize: "#{width}x#{height}!")
+      user.cover_image
     else
       'placeholder.jpg'
     end

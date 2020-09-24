@@ -9,7 +9,4 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   get 'sign_out', to: 'sessions#destroy'
   # get '*path' => redirect('/sign_in')
-
-  get 'index', to: 'frontend#index'
-  get 'show', to: 'frontend#show'
 end

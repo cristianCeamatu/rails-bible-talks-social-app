@@ -17,11 +17,14 @@
 @import "font-awesome";
 @import 'variables';
 
+* {
+  transition: all 0.3s ease-in-out;
+}
 body {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 img {
@@ -30,6 +33,18 @@ img {
 
 a {
   color: inherit;
+}
+
+button {
+  border: 0;
+  outline: 0;
+}
+
+button:active,
+button:focus,
+button:hover {
+  outline: none!important;
+  transform: scale(1.10);
 }
 
 .font-14 {
@@ -71,13 +86,15 @@ a {
   height: 40px;
 }
 
+.avatar-xl {
+  width: 80px;
+  height: 80px;
+}
+
 .aside-left {
   color: lighten($side-nav-text-color, 40%);
-  background-color: $side-nav-color;
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
+  background: $side-nav-color repeat-y 50% 0;
+  min-height: 100vh;
 
   .logged-user-social-count,
   a {
@@ -103,5 +120,16 @@ main {
 
   .opinions-feed-item {
     line-height: 0.9;
+  }
+
+  .main-content-feed {
+    .user-cover-image {
+      height: 250px;
+      width: 100%;
+    }
+  }
+
+  .user-form-actions button {
+    background-color: inherit;
   }
 }

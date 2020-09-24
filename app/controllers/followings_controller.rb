@@ -5,7 +5,7 @@ class FollowingsController < ApplicationController
     if @following.save
       redirect_to root_path, notice: 'Successfully followed'
     else
-      render template: 'opinions/index', notice: 'Could not create following, most probably it already exists.'
+      redirect_to root_path, notice: 'Could not create following, most probably it already exists.'
     end
   end
 

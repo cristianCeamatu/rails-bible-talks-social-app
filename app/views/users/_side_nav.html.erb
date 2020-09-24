@@ -3,7 +3,7 @@
   <!-- Logged user -->
   <div class="logged-user p-3">
     <div class="logged-user-details d-flex align-items-center mb-0">
-    <%= image_tag user_image(current_user, 50), class: 'rounded avatar-big' %>
+    <%= image_tag user_image(current_user), class: 'rounded avatar-big' %>
       <h3 class="logged-user-name font-12 pl-2 text-uppercase">
         <%= link_to current_user.fullname, user_path(current_user) %>
         <%= link_to 'Sign out', sign_out_path, class: 'text-danger font-10 d-block' %>

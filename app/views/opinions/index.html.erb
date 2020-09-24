@@ -8,12 +8,17 @@
     </div>
     
     <!-- Main content section -->
-    <div class="main-content-feed row">
+    <div class="main-content-feed row mr-0">
         <section class="opinions col-9 px-0 border-right">
-          <div class="bible-talk-form">
-            <%= render 'form' %>
-          </div>
-          <%= render 'opinions', opinions: @opinions %>
+          <ul class="nav nav-tabs border-bottom text-uppercase font-weight-bold font-14">
+            <li class="active p-4"><%= link_to 'Talks', root_path, class: 'pl-2 text-dark' %></li>
+            <li class="p-4"><a href="#" class="text-muted">Photos</a></li>
+            <li class="p-4"><a href="#" class="text-muted">Videos</a></li>
+          </ul>
+
+          <%= render 'form' %>
+          
+          <%= render 'opinions', opinions: @opinions, title: "#{@opinions.count} NEW BIBLE TALKS" %>
         </section>
 
         <%= render 'main_aside', users: @users %>

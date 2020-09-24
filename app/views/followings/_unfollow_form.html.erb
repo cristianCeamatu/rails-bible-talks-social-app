@@ -1,10 +1,14 @@
-<div class="user-unfollow-form">
-  <%= form_with(model: @following, url: following_path(user), method: 'delete', local: true) do |form| %>
-    <div>
-      <%= form.hidden_field :followed_id, value: user.id %>
-      <div class="actions">
-        <%= form.submit 'X', class: 'btn btn-danger h3' %>
+<% if current_user != user %>
+  <div class="user-unfollow-form">
+    <%= form_with(model: @following, url: following_path({id: 1}), method: 'delete', local: true) do |form| %>
+      <div>
+        <%= form.hidden_field :followed_id, value: user.id %>
+        <div class="user-form-actions">
+          <%= form.button :submit, class: 'text-gray rounded-circle ml-2 border d-block', disabled: !current_user.follows?(user) || current_user == user do %>
+            <%= fa_icon 'close' %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
