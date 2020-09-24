@@ -13,6 +13,9 @@
             </div>
             <%= f.submit 'Sign In', class: 'btn btn-primary btn-block mt-3' %>
           <% end %>
+
+          <p>Or sign in with:</p>
+          <div class="omniauth"><%= link_to "Sign in with Github", "/auth/github" %></div>
           <p class="text-center mt-3">Already have an account?<%= link_to ' Sign up', sign_up_path %></p>
         </div>
       </div>

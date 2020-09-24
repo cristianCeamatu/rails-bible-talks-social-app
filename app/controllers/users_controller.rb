@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:username] = @user.username
+      session[:user_id] = @user.id
       redirect_to opinions_path, notice: 'User succesfully created and logged in.'
     else
       render :new

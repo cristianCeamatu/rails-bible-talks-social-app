@@ -24,4 +24,17 @@ class User < ApplicationRecord
   def follows?(user)
     followed_users.include?(user)
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).or(where(username: auth.info.email.split('@').first[0..19])).first || create_from_omniauth(auth)
+  end
+
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.fullname = auth['info']['nickname'][0..29]
+      user.username = auth['info']['email'].split('@').first[0..19]
+    end
+  end
 end
