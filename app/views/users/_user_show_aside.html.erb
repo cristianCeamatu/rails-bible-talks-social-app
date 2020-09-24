@@ -35,7 +35,7 @@
 
     <div class="followed-by-container">
       <% user.followers.each do |follower| %>
-        <article class="followed-by d-flex align-items-center justify-content-between">
+        <article class="followed-by d-flex align-items-center justify-content-between py-2">
           <div class="followed-by-item d-flex align-items-center justify-content-between">
             <%= image_tag user_image(follower), class: 'avatar rounded-circle' %>
             <div class="followed-by-details pl-2">

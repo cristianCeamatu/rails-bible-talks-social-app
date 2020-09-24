@@ -18,7 +18,7 @@
 @import 'variables';
 
 * {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 body {
   max-width: 1440px;
@@ -45,6 +45,11 @@ button:focus,
 button:hover {
   outline: none!important;
   transform: scale(1.10);
+}
+
+button:disabled,
+button[disabled] {
+  cursor: not-allowed;
 }
 
 .font-14 {
