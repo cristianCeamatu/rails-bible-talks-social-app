@@ -14,8 +14,14 @@
             <%= f.submit 'Sign In', class: 'btn btn-primary btn-block mt-3' %>
           <% end %>
 
-          <p>Or sign in with:</p>
-          <div class="omniauth"><%= link_to "Sign in with Github", "/auth/github" %></div>
+          <p class="font-weight-bold h5 my-3">OR</p>
+          <div class="omniauth">
+            <%= link_to "/auth/github", class: 'github-button text-dark border font-weight-bold px-5 py-3 d-inline rounded shadow-sm' do %>
+              <%= image_tag 'github-icon.png', width: 40, height: 40, alt: 'Github icon' %>
+              Sign in with Github
+            <% end %>
+          
+          </div>
           <p class="text-center mt-3">Already have an account?<%= link_to ' Sign up', sign_up_path %></p>
         </div>
       </div>
