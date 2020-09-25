@@ -153,16 +153,16 @@ input[type="file"] {
 }
 
 .user-profile-social {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 
-    @media (min-width: 568px) {
-      & {
-        margin-left: -15px !important;
-        margin-right: -15px !important; 
-      }
+  @media (min-width: 568px) {
+    & {
+      margin-left: -15px !important;
+      margin-right: -15px !important;
     }
   }
+}
 
 main {
   background-color: $main-content-bg-color;
