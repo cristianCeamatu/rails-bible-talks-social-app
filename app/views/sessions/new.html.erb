@@ -6,27 +6,12 @@
         <p class="col-12">Please fill in the username your registered with your account:</p>
 
         <div class="sign-up-form col-12">
-          <%= form_with(url: sessions_path, local: true) do |f| %>
-            <div class="form-group">
-              <%= f.label :username %>
-              <%= f.text_field :username , class: 'form-control' %>
-            </div>
-            <%= f.submit 'Sign In', class: 'btn btn-primary btn-block mt-3' %>
-          <% end %>
+          <%= render 'form' %>
 
           <p class="font-weight-bold h5 my-3">OR</p>
-          <div class="omniauth mb-4">
-            <%= link_to "/auth/github", class: 'github-button text-dark border font-weight-bold px-5 py-3 rounded shadow-sm' do %>
-              <%= image_tag 'github-icon.png', width: 40, height: 40, alt: 'Github icon' %>
-              Sign in with Github
-            <% end %>
-          </div>
-          <div class="omniauth">
-            <%= link_to "/auth/twitter", class: 'github-button text-dark border font-weight-bold px-5 py-3 rounded shadow-sm' do %>
-              <%= image_tag 'twitter-icon2.png', width: 35, height: 35, alt: 'Twitter icon' %>
-              Sign in with Twitter
-            <% end %>
-          </div>
+          
+          <%= render 'omniauth_links' %>
+
           <p class="text-center mt-3">Already have an account?<%= link_to ' Sign up', sign_up_path %></p>
         </div>
       </div>

@@ -6,6 +6,7 @@
     <% end %>
     </ul>
   <% end %>
+
   <%= simple_form_for user do |f| %>
     <div class="form-group">
       <%= f.label :username, 'Username *', class: 'h6' %>
@@ -22,7 +23,7 @@
       <%= f.file_field :photo, class: 'border shadow-sm' %>
       <% if user.photo.attached? %>
          <div class="photo-preview my-2">
-           <span>Current avatar</span> <%= image_tag user_image(user), class: 'avatar-xl ml-4 rounded', alt: user.fullname %>     
+           <p class="text-info font-weight-bolder">Current avatar</p> <%= image_tag user_image(user), class: 'avatar-xl ml-4 rounded', alt: user.fullname %>     
          </div>
       <% end %>
     </div>
@@ -32,7 +33,7 @@
       <%= f.file_field :cover_image, class: 'border shadow-sm' %>
       <% if user.photo.attached? %>
         <div class="photo-preview my-2">
-          <p>Current cover image</p>
+          <p class="text-info font-weight-bolder">Current cover image</p>
           <%= image_tag user_cover_image(user), class: 'rounded cover', alt: user.fullname %>   
          </div>  
       <% end %>

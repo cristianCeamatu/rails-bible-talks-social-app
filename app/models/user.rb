@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates_uniqueness_of :username, on: :create
-  validates :fullname, presence: true, length: { minimum: 2, maximum: 40 }
+  validates :fullname, presence: true, length: { minimum: 2, maximum: 30 }
   validates :photo, content_type: %i[png jpg jpeg],
                     dimension: { width: { min: 50, max: 500 },
                                  height: { min: 50, max: 500 }, message: 'is not given between dimension. Accepted maximum (width 50-500px and height 50-500px' }, # rubocop: disable Layout/LineLength
@@ -37,12 +37,12 @@ class User < ApplicationRecord
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
-      user.fullname = get_name(auth)
+      user.fullname = name_from_auth(auth)
       user.username = auth['info']['nickname'][0..19]
     end
   end
 
-  def self.get_name(auth)
+  def self.name_from_auth(auth)
     name = auth['info']['name'].empty? ? auth['info']['nickname'] : auth['info']['name']
     name[0..29]
   end

@@ -14,4 +14,10 @@ module ApplicationHelper
       'placeholder.jpg'
     end
   end
+
+  def flash_errors(flash)
+    flash.each do |key, value|
+      render 'flashes', key: key, value: value
+    end
+  end
 end

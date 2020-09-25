@@ -1,9 +1,12 @@
 <div class="row mr-0">
-  <%= render 'users/side_nav' %>
+  <!-- Side nav left -->
+  <aside class="aside-left col-2 pr-0 py-2">
+    <%= render 'users/side_nav' %>
+  </aside>
 
   <!-- Main content -->
   <main class="col-10 pr-0">
-    <div class="row mx-0">
+    <div class="row mr-0">
       <%= render 'users/top_nav' %>
     </div>
     
@@ -16,12 +19,19 @@
             <li class="p-4"><a href="#" class="text-muted">Videos</a></li>
           </ul>
 
-          <%= render 'form' %>
-          
-          <%= render 'opinions', opinions: @opinions, title: "#{@opinions.length} NEW BIBLE TALKS" %>
+          <div class="new-opinion-form px-3 py-3 border bg-white m-4 rounded shadow-sm">
+            <%= render 'form' %>
+          </div>
+
+          <div class="opinions-feed px-4 py-4 border bg-white m-4 rounded shadow-sm">
+            <%= render 'opinions', opinions: @opinions, title: "#{@opinions.length} NEW BIBLE TALKS" %>
+          </div>
         </section>
 
-        <%= render 'main_aside', users: @users %>
+        <!-- Main aside right -->
+        <aside class="main-content-aside col-3 px-0">
+          <%= render 'main_aside', users: @users %>
+        </aside>
       </div>
     </div>
   </main>

@@ -1,0 +1,7 @@
+<%= form_with(url: sessions_path, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username , class: 'form-control' %>
+  </div>
+  <%= f.submit 'Sign In', class: 'btn btn-primary btn-block mt-3' %>
+<% end %>
