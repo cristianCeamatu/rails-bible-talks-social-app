@@ -103,20 +103,23 @@ button[disabled] {
   height: 250px;
 }
 
+.side-nav-colors {
+  color: lighten($side-nav-text-color, 40%);
+  background-color: $side-nav-color;
+}
+
+.bg-white {
+  background-color: #fafafa;
+}
+
 /* Main side nav left */
 .aside-left {
   color: lighten($side-nav-text-color, 40%);
   background: $side-nav-color repeat-y 50% 0;
   min-height: 100vh;
 
-  .logged-user-social-count,
   a {
     color: lighten($side-nav-text-color, 60%);
-  }
-
-  a:hover {
-    color: lighten($side-nav-text-color, 40%);
-    text-decoration: none;
   }
 }
 
@@ -126,6 +129,19 @@ button[disabled] {
 }
 
 /* Main content */
+.user-follow-form {
+  button {
+    background-color: inherit;
+  }
+
+  button:active,
+  button:focus,
+  button:hover {
+    outline: none;
+    transform: scale(1.1);
+  }
+}
+
 main {
   background-color: $main-content-bg-color;
 
@@ -155,20 +171,42 @@ main {
       font-weight: bold;
     }
   }
+}
 
-  /* User follow actions */
-  .user-follow-form {
-    button {
-      background-color: inherit;
-    }
+.mobile-nav-buttons {
+  position: fixed;
+  bottom: 10px;
 
-    button:active,
-    button:focus,
-    button:hover {
-      outline: none;
-      transform: scale(1.1);
-    }
+  .logged-user-social-count,
+  a {
+    color: lighten($side-nav-text-color, 60%);
   }
+
+  a:hover {
+    color: lighten($side-nav-text-color, 40%);
+    text-decoration: none;
+  }
+
+  &.left {
+    left: 10px;
+  }
+
+  &.right {
+    left: 80px;
+  }
+
+  button:focus,
+  button:active,
+  .collapse,
+  & {
+    border: none;
+    outline: none;
+  }
+}
+
+.aside-left a:hover {
+  color: lighten($side-nav-text-color, 40%);
+  text-decoration: none;
 }
 
 @keyframes alert-dissapear {
