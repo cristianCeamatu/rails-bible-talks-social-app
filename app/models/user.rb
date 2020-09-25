@@ -39,6 +39,7 @@ class User < ApplicationRecord
       user.uid = auth['uid']
       user.fullname = get_name(auth)
       user.username = auth['info']['nickname'][0..19]
+      user.photo = auth['info']['image'] if auth['info']['image']
     end
   end
 
