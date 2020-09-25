@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.png' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,12 +13,7 @@
 </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, class: "alert alert-success alert-dismissable text-center rounded mb-0 shadow-lg font-weight-bold") do %>
-        <%= value %>
-        <button type="button" class="close ml-3 text-danger h3" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <% end %>
-    <% end %>
+    <%= render 'partials/flashes' %>
 
     <%= yield %>
   </body>

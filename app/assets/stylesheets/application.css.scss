@@ -76,11 +76,17 @@ button[disabled] {
 
 .alert.alert-dismissable {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 10px;
+  right: 5px;
+  left: 5px;
   z-index: 5;
   -webkit-animation: alert-dissapear 5s forwards;
   animation: alert-dissapear 5s forwards;
+
+  @media (min-width: 568px) {
+    right: 30px;
+    left: auto;
+  }
 }
 
 .avatar-big {
@@ -176,6 +182,11 @@ main {
 .mobile-nav-buttons {
   position: fixed;
   bottom: 10px;
+
+  .mobile-button-who-to-follow {
+    padding-top: 10.2px;
+    padding-bottom: 10.2px;
+  }
 
   .logged-user-social-count,
   a {
