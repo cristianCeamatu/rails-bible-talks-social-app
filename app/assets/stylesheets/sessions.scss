@@ -19,8 +19,18 @@
     background: rgb(237, 237, 237);
     background: linear-gradient(90deg, rgba(237, 237, 237, 0.9752275910364145) 0%, rgba(237, 237, 237, 0.9780287114845938) 35%, rgba(244, 244, 244, 0.9808298319327731) 100%);
 
+    ul {
+      list-style: none;
+      color: rgb(236, 159, 15);
+      font-weight: bold;
+    }
+
     a:hover {
       text-decoration: none;
+    }
+
+    .omniauth .github-button:hover {
+      box-shadow: none !important;
     }
   }
 }

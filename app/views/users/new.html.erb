@@ -5,41 +5,9 @@
       <h1 class="col-12 h3">Create a new User</h1>
       <p class="col-12">Please fill in all the required fields below</p>
       
-      <% if @user.errors.any? %>
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      <% end %>
-      
+      <%= render 'form', user: @user, button_text: 'Create account' %>
 
-      <div class="sign-up-form col-12">
-        <%= simple_form_for @user do |f| %>
-          <div class="form-group">
-            <%= f.label :username, 'Username *', class: 'h6' %>
-            <%= f.input_field :username, hint: '2-20 chars allowed', class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :fullname, 'Full name *', class: 'h6' %>
-            <%= f.input_field :fullname, hint: '2-30 chars allowed', class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :photo, 'Your profile picture (optional)', class: 'h6 d-block' %>
-            <%= f.file_field :photo, class: 'border shadow-sm' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :cover_image, 'Your cover image (optional)', class: 'h6 d-block' %>
-            <%= f.file_field :cover_image, class: 'border shadow-sm' %>
-          </div>
-
-          <%= f.button :submit, 'Create account!', class: 'btn btn-primary btn-block mt-5' %>
-        <% end %>
-        <p class="text-center mt-3">Alreade have an account? <%= link_to 'Sign_in', sign_in_path %></p>
-      </div>
+      <p class="text-center mx-auto mt-3">Already have an account? <%= link_to 'Sign_in', sign_in_path %></p>
     </div>
   </div>
   </section>

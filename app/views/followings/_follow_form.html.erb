@@ -4,9 +4,7 @@
       <div>
         <%= form.hidden_field :followed_id, value: user.id %>
         <div class="user-form-actions">
-          <%= form.button :submit, class: 'text-gray rounded-circle mr-2 border d-block', disabled: current_user.follows?(user) do %>
-            <%= fa_icon 'plus' %>
-          <% end %>
+          <%= follow_action(user, form) %>
         </div>
       </div>
     <% end %>

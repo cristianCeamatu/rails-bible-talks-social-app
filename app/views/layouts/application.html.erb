@@ -6,16 +6,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag 'favicon.jpg' %>
+    <%= favicon_link_tag 'favicon.png' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
   <body>
     <% flash.each do |key, value| %>
-      <%= content_tag(:div, class: "alert alert-info alert-dismissable text-center rounded-0 mb-0 pr-0") do %>
+      <%= content_tag(:div, class: "alert alert-success alert-dismissable text-center rounded mb-0 shadow-lg font-weight-bold") do %>
         <%= value %>
-        <button type="button" class="close mr-4 text-danger" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <button type="button" class="close ml-3 text-danger h3" data-dismiss="alert" aria-hidden="true">&times;</button>
       <% end %>
     <% end %>
 

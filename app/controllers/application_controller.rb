@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
+  helper_method :logged_in?, :current_user
+
   def logged_in?
-    !session[:username].nil?
+    current_user
   end
 
   def current_user
-    User.includes(:followers, :followed_users).find_by_username(session[:username]) if session[:username]
+    @current_user ||= User.includes(:followers, :followed_users).find(session[:user_id]) if session[:user_id]
   end
-
-  helper_method :logged_in?, :current_user
 end

@@ -6,13 +6,12 @@
         <p class="col-12">Please fill in the username your registered with your account:</p>
 
         <div class="sign-up-form col-12">
-          <%= form_with(url: sessions_path, local: true) do |f| %>
-            <div class="form-group">
-              <%= f.label :username %>
-              <%= f.text_field :username , class: 'form-control' %>
-            </div>
-            <%= f.submit 'Sign In', class: 'btn btn-primary btn-block mt-3' %>
-          <% end %>
+          <%= render 'form' %>
+
+          <p class="font-weight-bold h5 my-3">OR</p>
+          
+          <%= render 'omniauth_links' %>
+
           <p class="text-center mt-3">Already have an account?<%= link_to ' Sign up', sign_up_path %></p>
         </div>
       </div>

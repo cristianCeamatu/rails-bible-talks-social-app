@@ -1,15 +1,14 @@
 <!-- New opinion form -->
-<div class="new-opinion-form px-4 py-4 border bg-white m-4 rounded shadow-sm">
-  <%= simple_form_for(@opinion, class: 'd-flex') do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <h4 class="h4 text-muted">Share your Bible talk</h4>
-    <div class="form-group">
-      <%= f.input :text, label: false, input_html: { rows: 1 }, class: 'form-control' %>
-    </div>
+<%= simple_form_for(@opinion, class: 'd-flex') do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <h4 class="font-14 text-muted">Share your Bible talk</h4>
+  <div class="form-group">
+    <%= f.input :text, label: false, input_html: { rows: 1 }, class: 'form-control' %>
+  </div>
 
-    <div class="text-right">
-      <%= f.button :submit, class: 'btn btn-primary d-inline-block' %>
-    </div>
-  <% end %>
-</div>
+  <div class="text-right">
+    <%= f.button :submit, class: 'btn btn-primary p-1 d-inline-block' %>
+  </div>
+<% end %>
+
