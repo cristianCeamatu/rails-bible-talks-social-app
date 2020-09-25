@@ -1,0 +1,22 @@
+<div class="sign-up-wrapper p-4 pt-sm-5">
+  <section class="sign-up border shadow mx-auto my-3 my-sm-5 py-3 p-md-4">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <h1 class="col-12 h3">Sign in</h1>
+        <p class="col-12">Please fill in the username your registered with your account:</p>
+
+        <div class="sign-up-form col-12">
+          <%= render 'form' %>
+
+          <p class="font-weight-bold h5 my-3">OR</p>
+          
+          <%= render 'omniauth_links' %>
+
+          <p class="text-center mt-3">Already have an account?<%= link_to ' Sign up', sign_up_path %></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

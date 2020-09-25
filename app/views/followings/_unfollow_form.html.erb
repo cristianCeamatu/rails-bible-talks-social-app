@@ -1,0 +1,12 @@
+<% if current_user != user %>
+  <div class="user-follow-form">
+    <%= form_with(model: @following, url: following_path({id: 1}), method: 'delete', local: true) do |form| %>
+      <div>
+        <%= form.hidden_field :followed_id, value: user.id %>
+        <div class="user-form-actions">
+          <%= unfollow_action(user, form) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
