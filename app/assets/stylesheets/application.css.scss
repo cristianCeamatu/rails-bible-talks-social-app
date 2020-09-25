@@ -103,13 +103,21 @@ button[disabled] {
   height: 250px;
 }
 
+.side-nav-colors {
+  color: lighten($side-nav-text-color, 40%);
+  background-color: $side-nav-color;
+}
+
+.bg-white {
+  background-color: #fafafa;
+}
+
 /* Main side nav left */
 .aside-left {
   color: lighten($side-nav-text-color, 40%);
   background: $side-nav-color repeat-y 50% 0;
   min-height: 100vh;
 
-  .logged-user-social-count,
   a {
     color: lighten($side-nav-text-color, 60%);
   }
@@ -168,6 +176,38 @@ main {
       outline: none;
       transform: scale(1.1);
     }
+  }
+}
+
+.mobile-nav-buttons {
+  position: fixed;
+  bottom: 10px;
+
+  .logged-user-social-count,
+  a {
+    color: lighten($side-nav-text-color, 60%);
+  }
+
+  a:hover {
+    color: lighten($side-nav-text-color, 40%);
+    text-decoration: none;
+  }
+
+  &.left {
+    left: 10px;
+  }
+
+  &.right {
+    left: 80px;
+  }
+
+  button,
+  button:focus,
+  button:active,
+  .collapse,
+  & {
+    border: none;
+    outline: none;
   }
 }
 

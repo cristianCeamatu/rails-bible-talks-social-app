@@ -20,5 +20,13 @@
     <% end %>
 
     <%= yield %>
+
+    <%= render 'users/mobile/logged_user' %>
+    
+    <% if @user.nil? %>
+      <%= render 'users/mobile/who_to_follow', users: @users %>
+      <% else %>
+      <%= render 'users/mobile/show_user', user: @user %>
+    <% end %>
   </body>
 </html>

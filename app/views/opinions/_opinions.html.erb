@@ -9,7 +9,7 @@
       <%= image_tag user_image(opinion.author), class: 'avatar-big rounded' %>
       <div class="opinions-feed-item-details pl-2 w-100">
         <div class="opinions-feed-item-header d-flex align-items-center justify-content-between mb-1">
-          <h5 class="opinions-feed-item-author font-14 mb-0 text-dark text-uppercase font-weight-bold">
+          <h5 class="opinions-feed-item-author font-14 mb-0 text-dark text-capitalise font-weight-bold">
             <%= link_to opinion.author.fullname, opinion.author %>
           </h5>
           <p class="opinions-feed-item-date text-gray font-12 mb-0"><%= time_ago_in_words(opinion.created_at) %></p>
