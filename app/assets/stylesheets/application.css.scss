@@ -76,7 +76,7 @@ button[disabled] {
 
 .alert.alert-dismissable {
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   right: 5px;
   left: 5px;
   z-index: 5;
@@ -118,6 +118,10 @@ button[disabled] {
   background-color: #fafafa;
 }
 
+input[type="file"] {
+  max-width: 100%;
+}
+
 /* Main side nav left */
 .aside-left {
   color: lighten($side-nav-text-color, 40%);
@@ -148,6 +152,18 @@ button[disabled] {
   }
 }
 
+.user-profile-social {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    @media (min-width: 568px) {
+      & {
+        margin-left: -15px !important;
+        margin-right: -15px !important; 
+      }
+    }
+  }
+
 main {
   background-color: $main-content-bg-color;
 
@@ -157,7 +173,7 @@ main {
 
   .opinions-feed-item {
     line-height: 0.9;
-    
+
     .opinions-feed-item-text {
       line-height: 1.2;
     }
