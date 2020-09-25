@@ -1,12 +1,12 @@
-![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
+![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/Mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-# Bible Talks social web app built in rails with user registrations, possibility to create talks(tweets) and follow/unfollow users.
+# Bible Talks social web app built in rails with user registration and creation of talks(tweets)/follow/unfollow users.
 
 > In this project, we were required to build a social app where users can sign-up/sign-in/sign out, create talks(tweets), and follow/unfollow other users. The project enforced our skills in using most of the core functionalities of the Rails framework.
 <br>
 > The app is mobile responsive and users can also <b>sign up/sign in with their Github and Twitter accounts</b>. Users can upload a profile and cover images at the sign-up or after they sign in by accessing the profile page, here they can also edit their username and full name.
 <br>
-> Used RSpec for unit and integration tests
+> The app is tested using RSpec for unit and integration tests
 
 ## App functionality
 
@@ -20,7 +20,6 @@
 
 
 ## This web app is live, you can check it here: [Live demo](https://rails-bible-talks.herokuapp.com/)
-### Feel free to sign up or login with your Gihub/Twitter
 
 ## Screenshots of the app.
 
@@ -62,10 +61,10 @@ Run `bundle exec figaro install`, this will create a file called `application.ym
 Open `config/application.yml` and add your credenatials for your postgres/[github](https://github.com/settings/applications) and [twitter](https://dev.twitter.com/apps) accounts like this (click on the above links to find out how to get a key):<br>
 `PG_DATABASE_USER: example` <br>
 `PG_DATABASE_PASSWORD: password`<br>
-`GITHUB_KEY: key`
-`GITHUB_SECRET: key`
-`TWITTER_KEY: key`
-`TWITTER_SECRET: key`
+`GITHUB_KEY: key`<br>
+`GITHUB_SECRET: key`<br>
+`TWITTER_KEY: key`<br>
+`TWITTER_SECRET: key`<br>
 **Step 7**<br>
 Run `rails db:create` and `rails db:migrate` to create and migrate the database tabels and associations.<br>
 **Step 8**<br>
