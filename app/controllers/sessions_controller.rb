@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
+    raise omniauth_hash.to_yaml if omniauth_hash
     @user = omniauth_hash.nil? ? User.find_by_username(params[:username]) : User.from_omniauth(omniauth_hash)
 
     if @user
