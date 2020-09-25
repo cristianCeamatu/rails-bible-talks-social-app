@@ -121,11 +121,6 @@ button[disabled] {
   a {
     color: lighten($side-nav-text-color, 60%);
   }
-
-  a:hover {
-    color: lighten($side-nav-text-color, 40%);
-    text-decoration: none;
-  }
 }
 
 /* Top nav */
@@ -134,6 +129,19 @@ button[disabled] {
 }
 
 /* Main content */
+.user-follow-form {
+  button {
+    background-color: inherit;
+  }
+
+  button:active,
+  button:focus,
+  button:hover {
+    outline: none;
+    transform: scale(1.1);
+  }
+}
+
 main {
   background-color: $main-content-bg-color;
 
@@ -163,20 +171,6 @@ main {
       font-weight: bold;
     }
   }
-
-  /* User follow actions */
-  .user-follow-form {
-    button {
-      background-color: inherit;
-    }
-
-    button:active,
-    button:focus,
-    button:hover {
-      outline: none;
-      transform: scale(1.1);
-    }
-  }
 }
 
 .mobile-nav-buttons {
@@ -201,7 +195,6 @@ main {
     left: 80px;
   }
 
-  button,
   button:focus,
   button:active,
   .collapse,
@@ -209,6 +202,11 @@ main {
     border: none;
     outline: none;
   }
+}
+
+.aside-left a:hover {
+  color: lighten($side-nav-text-color, 40%);
+  text-decoration: none;
 }
 
 @keyframes alert-dissapear {
