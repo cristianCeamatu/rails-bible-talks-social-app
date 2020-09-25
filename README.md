@@ -18,6 +18,7 @@
 - Users can see who he is following and who are following other users
 - The app is fully mobile responsive
 
+## Video presentation of the project [here](https://www.loom.com/share/b40e1d7bda964f3d930f232d4bebfafd)
 
 ## This web app is live, you can check it here: [Live demo](https://rails-bible-talks.herokuapp.com/)
 
