@@ -240,6 +240,10 @@ main {
   text-decoration: none;
 }
 
+.pos-f-t .collapse {
+  min-width: 230px;
+}
+
 @keyframes alert-dissapear {
   0% {
     opacity: 1;
