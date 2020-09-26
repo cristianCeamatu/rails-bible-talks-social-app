@@ -1,22 +1,18 @@
 <div class="row mr-0">
-  <!-- Side nav left -->
   <aside class="aside-left col-3 col-lg-2 d-none d-md-block pr-0 py-2">
     <%= render 'users/side_nav' %>
   </aside>
 
-  <!-- Main content -->
   <main class="col-12 col-md-9 col-lg-10 pr-0 mr-0">
     <div class="row mr-0">
       <%= render 'users/top_nav' %>
     </div>
 
-    <!-- Main content section -->
     <div class="main-content-feed row mr-0">
       <div class="col-12 col-sm-8 col-lg-9 pl-3 pr-0 border-right">
         <%= render 'form', user: @user, button_text: 'Update profile' %>
       </div>
       
-      <!-- Main aside right -->
       <aside class="main-content-aside col-4 col-lg-3 d-none d-sm-block">
         <%= render 'user_show_aside', user: @user %>
       </aside>
@@ -24,11 +20,5 @@
   </main>
 </div>
 
-<!-- Mobile view positioned fixed -->
 <%= render 'users/mobile/logged_user' %>
-
-<% if @user.nil? %>
-  <%= render 'users/mobile/who_to_follow', users: @users %>
-  <% else %>
-  <%= render 'users/mobile/show_user', user: @user %>
-<% end %>
+<%= mobile_right_button(@user, @users) %>

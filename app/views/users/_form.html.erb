@@ -1,11 +1,5 @@
 <div class="sign-up-form col-12">
-  <% if user.errors.any? %>
-    <ul class="text-left">
-    <% user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  <% end %>
+  <%= form_errors(user) %>
 
   <%= simple_form_for user do |f| %>
     <div class="form-group">
@@ -39,6 +33,6 @@
       <% end %>
     </div>
 
-    <%= f.button :submit, button_text, class: 'btn btn-primary btn-block mt-5' %>
+    <%= f.button :submit, button_text, class: 'btn btn-primary btn-block mt-3' %>
   <% end %>
 </div>

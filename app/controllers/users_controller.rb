@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update]
+  before_action :require_login, only: %i[show update edit]
 
   def show
     @user = User.includes(:opinions, :followed_users, :followers, cover_image_attachment: :blob, photo_attachment: :blob).find(params[:id]) # rubocop: disable Layout/LineLength

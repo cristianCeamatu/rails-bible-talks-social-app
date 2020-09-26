@@ -1,9 +1,9 @@
 <!-- Aside user profile -->
 <div class="user-profile py-3">
   <ul class="user-profile-actions list-unstyled d-flex align-items-center justify-content-center">
-    <li><%= render 'followings/follow_form', user: user %></li>
+    <li><%= follow_form(user) %></li>
     <li><%= image_tag user_image(user), class: 'avatar-xl rounded-circle' %></li>
-    <li><%= render 'followings/unfollow_form', user: user %></li>
+    <li><%= unfollow_form(user) %></li>
   </ul>
 
   <div class="user-profile-header text-center mb-2">

@@ -22,6 +22,11 @@
   transition: all 0.1s ease-in-out;
 }
 
+html {
+  background: rgb(81, 165, 228);
+  background: linear-gradient(90deg, rgba(81, 165, 228, 0.9444152661064426) 0%, rgba(81, 165, 228, 0.8855917366946778) 35%, rgba(81, 165, 228, 1) 71%, rgba(81, 165, 228, 1) 100%);
+}
+
 body {
   max-width: 1440px;
   width: 100%;
@@ -204,8 +209,9 @@ main {
   bottom: 10px;
 
   .mobile-button-who-to-follow {
-    padding-top: 10.2px;
-    padding-bottom: 10.2px;
+    width: 42px;
+    height: 42px;
+    padding: 0.25rem 0.75rem 0.25rem 0.6rem;
   }
 
   .logged-user-social-count,
@@ -223,7 +229,16 @@ main {
   }
 
   &.right {
-    left: 80px;
+    left: 60px;
+  }
+
+  .collapse {
+    overflow-y: scroll;
+    max-height: 90vh;
+
+    .show {
+      min-width: 200px;
+    }
   }
 
   button:focus,
