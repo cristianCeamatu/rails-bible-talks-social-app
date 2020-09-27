@@ -6,7 +6,7 @@ RSpec.describe '/opinions', type: :request do
 
   before(:each) do
     @user1 = User.create!(username: 'Marshall', fullname: 'uimarshall@gmail.com')
-    post '/sessions', params: { username: @user1.username }
+    post '/sessions', params: { user: { username: @user1.username } }
   end
 
   describe 'POST /create' do

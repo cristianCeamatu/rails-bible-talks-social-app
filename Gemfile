@@ -33,8 +33,8 @@ gem 'font-awesome-rails'
 gem 'image_processing'
 gem 'mini_magick'
 
-gem 'aws-sdk-s3', require: false
 gem 'active_storage_validations'
+gem 'aws-sdk-s3', require: false
 
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-twitter', github: 'arunagw/omniauth-twitter'

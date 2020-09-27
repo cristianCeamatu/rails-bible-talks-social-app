@@ -11,13 +11,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :username, on: :create
   validates :fullname, presence: true, length: { minimum: 2, maximum: 30 }
   validates :photo, content_type: %i[png jpg jpeg],
-                    dimension: { width: { min: 50, max: 500 },
-                                 height: { min: 50, max: 500 }, message: 'is not given between dimension. Accepted sizes (width 50-500px and height 50-500px).' }, # rubocop: disable Layout/LineLength
                     size: { less_than: 3.megabytes, message: 'is not given between size. It whould be under 3mb.' }
   validates :cover_image, content_type: %i[png jpg jpeg],
-                          dimension: { width: { min: 400, max: 1600 },
-                                       height: { min: 250, max: 1600 },
-                                       message: 'is not given between dimension. Accepted sizes (width 400-1600px and height 250-1600px).' }, # rubocop: disable Layout/LineLength
                           size: { less_than: 4.megabytes,
                                   message: 'is not given between size. It should be under 4mb.' }
 
