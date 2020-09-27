@@ -104,3 +104,7 @@ If you've read this far....give us a ⭐️!
 ## 📝 License
 
 This project is licensed by Microverse and the Odin Project
+
+##  Acknowledgement
+
+- Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
