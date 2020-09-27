@@ -1,6 +1,6 @@
 class FollowingsController < ApplicationController
   def create
-    @following = Following.find_or_initialize_by(follower_id: current_user.id, followed_id: params[:followed_id])
+    @following = current_user.followings.find_or_initialize_by(following_params)
 
     if @following.save
       redirect_to request.referer, notice: "Successfully followed `#{@following.followed.fullname}`"
@@ -10,7 +10,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    @following = Following.find_by(followed_id: params[:followed_id])
+    @following = current_user.followings.find_by(following_params)
 
     if @following.nil?
       redirect_to request.referer, notice: 'Could not delete following, most probably it does not exist exist.'
@@ -18,5 +18,11 @@ class FollowingsController < ApplicationController
       @following.destroy
       redirect_to request.referer, notice: "Succesfully unfollowed `#{@following.followed.fullname}`"
     end
+  end
+
+  private
+
+  def following_params
+    params.permit(:followed_id)
   end
 end

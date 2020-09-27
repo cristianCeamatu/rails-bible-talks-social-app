@@ -1,6 +1,6 @@
 <%= simple_form_for(@opinion, class: 'd-flex') do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= form_errors(@opinion) %>
+
   <h4 class="font-14 text-muted">Share your Bible talk</h4>
   <div class="form-group">
     <%= f.input :text, label: false, input_html: { rows: 1 }, class: 'form-control' %>

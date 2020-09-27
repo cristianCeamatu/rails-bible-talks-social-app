@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
-    @user = omniauth_hash.nil? ? User.find_by_username(params[:username]) : User.from_omniauth(omniauth_hash)
+    @user = omniauth_hash.nil? ? User.find_by(user_params) : User.from_omniauth(omniauth_hash)
 
     if @user
       session[:user_id] = @user.id
@@ -23,5 +25,9 @@ class SessionsController < ApplicationController
 
   def omniauth_hash
     request.env['omniauth.auth']
+  end
+
+  def user_params
+    params.require(:user).permit(:username)
   end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'opinions#index'
-  resources :opinions
+  resources :opinions, except: %i[edit destroy show]
   resources :users, only: %i[show create edit update]
   resources :sessions, only: %i[new create destroy]
   resources :followings, only: %i[create destroy]

@@ -15,22 +15,13 @@
     <div class="form-group text-center">
       <%= f.label :photo, 'Your profile picture (optional)', class: 'h6 d-block' %>
       <%= f.file_field :photo, class: 'border shadow-sm' %>
-      <% if user.photo.attached? %>
-         <div class="photo-preview my-2">
-           <p class="text-info font-weight-bolder">Current avatar</p> <%= image_tag user_image(user), class: 'avatar-xl ml-4 rounded', alt: user.fullname %>     
-         </div>
-      <% end %>
+      <%= user_photo_preview(user) %>
     </div>
 
     <div class="form-group text-center">
       <%= f.label :cover_image, 'Your cover image (optional)', class: 'h6 d-block' %>
       <%= f.file_field :cover_image, class: 'border shadow-sm' %>
-      <% if user.photo.attached? %>
-        <div class="photo-preview my-2">
-          <p class="text-info font-weight-bolder">Current cover image</p>
-          <%= image_tag user_cover_image(user), class: 'rounded cover', alt: user.fullname %>   
-         </div>  
-      <% end %>
+      <%= user_cover_image_preview(user) %>
     </div>
 
     <%= f.button :submit, button_text, class: 'btn btn-primary btn-block mt-3' %>
