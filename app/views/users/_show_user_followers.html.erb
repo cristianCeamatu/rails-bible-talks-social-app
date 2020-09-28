@@ -1,4 +1,3 @@
-<!-- Followed by -->
 <div class="followed-by px-1">
   <p class="followed-by-title mb-0 text-muted font-weight-bold py-3">FOLLOWED BY</p>
 
@@ -13,7 +12,7 @@
           </div>
         </div>
 
-        <%= render 'followings/follow_form', user: follower %>
+        <%= follow_form(follower) %>
       </article>
     <% end %>
   </div>
