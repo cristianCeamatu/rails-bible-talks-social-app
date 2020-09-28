@@ -16,7 +16,7 @@
 - Users can edit their profile username, full name and images
 - Users can follow and unfollow other users
 - Users can see who he is following and who are following other users
-- The app is fully mobile responsive
+- The app is fully mobile responsive and uploads the user images to AWS S3 with Active Storage
 
 ## Video presentation of the project [here](https://www.loom.com/share/b40e1d7bda964f3d930f232d4bebfafd)
 
@@ -34,6 +34,7 @@
 - RSpec
 - PostgreSQL
 - Omniauth
+- AWS S3 uploads for Rails Active Storage
 - Bootstrap
 - Fontawesome
 
@@ -59,13 +60,17 @@ Run `yarn install` to install the npm packages from the `package.json` file.<br>
 **Step 5**<br>
 Run `bundle exec figaro install`, this will create a file called `application.yml` in the `config` folder.<br>
 **Step 6**<br>
-Open `config/application.yml` and add your credenatials for your postgres/[github](https://github.com/settings/applications) and [twitter](https://dev.twitter.com/apps) accounts like this (click on the above links to find out how to get a key):<br>
+Open `config/application.yml` and add your credenatials for your postgres/[github](https://github.com/settings/applications) and [twitter](https://dev.twitter.com/apps)/[AWS S3](https://aws.amazon.com/console/) accounts like this (click on the above links to find out how to get a key):<br>
 `PG_DATABASE_USER: example` <br>
 `PG_DATABASE_PASSWORD: password`<br>
 `GITHUB_KEY: key`<br>
 `GITHUB_SECRET: key`<br>
 `TWITTER_KEY: key`<br>
 `TWITTER_SECRET: key`<br>
+`BUCKETEER_AWS_ACCESS_KEY_ID: key`<br>
+`BUCKETEER_AWS_SECRET_ACCESS_KEY: key`<br>
+`BUCKETEER_AWS_REGION: key-zone`<br>
+`BUCKETEER_BUCKET_NAME: key-bucket`<br>
 **Step 7**<br>
 Run `rails db:create` and `rails db:migrate` to create and migrate the database tabels and associations.<br>
 **Step 8**<br>
