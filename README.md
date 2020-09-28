@@ -1,49 +1,46 @@
-![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
+![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/Mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-# The Master Seach Telegram Bot
+# Bible Talks social web app built in rails with user registration and creation of talks(tweets)/follow/unfollow users.
 
-> In this project, I built a Telegram Bot that can search on Wikipedia or get you 3 random Wikipedia articles. It also sends you random funny Gifs every time you write something else in the chat or you use the /start and /stop commands. The main goal is to make a massive use of external API`s by putting into practice the main concepts of Object Oriented Programming, classes, modules, objects and accessing their attributes.<br>
-> The project is built using the TDD technique.
+> In this project, we were required to build a social app where users can sign-up/sign-in/sign out, create talks(tweets), and follow/unfollow other users. The project enforced our skills in using most of the core functionalities of the Rails framework.
+<br>
+> The app is mobile responsive and users can <b>sign up/sign in with their Github and Twitter accounts</b>. Users can upload a profile and cover images at the sign-up or after they sign in by accessing the profile page, here they can also edit their username and full name.
+<br>
+> The app is tested using RSpec for unit and integration tests
 
-## The Bot is live, you can check him here: [Master Search Bot](http://t.me/master_search_ruby_bot)
+## App functionality
 
-## You can see a short demo of the Bot /start command in the screenshot below.
-![image](.github/app_screenshot.png)
+- Users can sign up/sign in/sign out by filling out the forms or using their Github or Twitter account
+- Users can create talks (tweets)
+- Users can upload a profile and cover images when they sign up, otherwise they will have default placeholders
+- Users can edit their profile username, full name and images
+- Users can follow and unfollow other users
+- Users can see who he is following and who are following other users
+- The app is fully mobile responsive and uploads the user images to AWS S3 with Active Storage
 
-## The files structure of the project
-![screenshot](.github/folder_structure.png)
-### Live version of the code: [REPL.it](https://repl.it/@cristianCeamatu/microverse-ruby-telegram-bot)
+## Video presentation of the project [here](https://www.loom.com/share/b40e1d7bda964f3d930f232d4bebfafd)
 
-## Available commands for the master-search-bot
+## This web app is live, you can check it here: [Live demo](https://rails-bible-talks.herokuapp.com/)
 
-1. `/start` receive a greetings message, all available commands and a funny random Gif
-2. `/stop` receive a farewell message, a nice joke and a funny random Gif
-3. `search wiki <your query>` receive a loading message and maximum 3 Wikipedia articles related to your search query
-4. `search wiki random` receive 3 random Wikipedia articles
-4. `search google <your query>` receive a loading message and maximum 3 articles from the **Google Domain Websites (not a regular google search)**
-5. Writed anything else in the chat and you will be informed about the available commands and receive a random funny Gif
+## Screenshots of the app.
 
-## Video Explanation
-
-Here is the [video explanation](https://www.loom.com/share/b997a75a2bcb46f1ad2bc2a03ebe4015) of this project.
+![image](.github/app-screenshot.jpg)
+![image](.github/app-screenshot2.png) ![image](.github/app-screenshot3.png)
 
 ## Built With
-* Ruby
-* [Telegram API](https://core.telegram.org/api)
-* [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page/en)
-* [Tenor Gif API](https://tenor.com/gifapi/documentation)
-* RSpec
-* Rubocop
 
-## Ruby gems dependencies
-* colorize
-* dotenv
-* httparty
-* telegram-bot-ruby
+- Ruby
+- Rails
+- RSpec
+- PostgreSQL
+- Omniauth
+- AWS S3 uploads for Rails Active Storage
+- Bootstrap
+- Fontawesome
 
 ## Prerequisities
 
-To get this project up and running locally, you must have ruby installed on your computer.
+To get this project up and running locally, you must have ruby and postgres installed on your computer.
 
 ## Getting Started
 
@@ -51,62 +48,47 @@ To get this project up and running locally, you must have ruby installed on your
 
 **Step 1**<br>
 Navigate through the local folder where you want to clone the repository and run<br>
-`git clone git@github.com:cristianCeamatu/microverse-ruby-telegram-bot.git`. It will clone the repo to your local folder.<br>
+`git@github.com:cristianCeamatu/rails-bible-talks-social-app.git`. It will clone the repo to your local folder.<br>
 or with https<br>
-`git clone https://github.com/cristianCeamatu/microverse-ruby-telegram-bot.git`.<br>
+`https://github.com/cristianCeamatu/rails-bible-talks-social-app`.<br>
 **Step 2**<br>
-Run `cd microverse-ruby-telegram-bot`<br>
+Run `cd rails-bible-talks-social-app`<br>
 **Step 3**<br>
 Run `bundle install` to install the gems from the `Gemfile`.<br>
 **Step 4**<br>
-Download the [Telegram app](https://desktop.telegram.org/), create an account and talk to the [Botfather](https://t.me/botfather). Follow the instructions and create a bot, you will then receive an API Token that looks like this: `1347431199:AAH4hPt6PDiJB4swk23Lb4oOzwocjKpba0S4` and the link to your bot.<br>
+Run `yarn install` to install the npm packages from the `package.json` file.<br>
 **Step 5**<br>
-Visit [Tenor API page](https://tenor.com/gifapi/documentation) and follow the quickstart steps to get a Tenor API Key.<br>
+Run `bundle exec figaro install`, this will create a file called `application.yml` in the `config` folder.<br>
 **Step 6**<br>
-Visit [Google API page](https://developers.google.com/custom-search/v1/overview) and follow the quickstart steps to get the API token.<br>
+Open `config/application.yml` and add your credenatials for your postgres/[github](https://github.com/settings/applications) and [twitter](https://dev.twitter.com/apps)/[AWS S3](https://aws.amazon.com/console/) accounts like this (click on the above links to find out how to get a key):<br>
+`PG_DATABASE_USER: example` <br>
+`PG_DATABASE_PASSWORD: password`<br>
+`GITHUB_KEY: key`<br>
+`GITHUB_SECRET: key`<br>
+`TWITTER_KEY: key`<br>
+`TWITTER_SECRET: key`<br>
+`BUCKETEER_AWS_ACCESS_KEY_ID: key`<br>
+`BUCKETEER_AWS_SECRET_ACCESS_KEY: key`<br>
+`BUCKETEER_AWS_REGION: key-zone`<br>
+`BUCKETEER_BUCKET_NAME: key-bucket`<br>
 **Step 7**<br>
-Run `touch .env` on your terminal to create the `.env` file. Then add your tokens in the required fields `TELEGRAM_BOT_TOKEN=` and `TENOR_API_TOKEN=` inside the file.<br>
+Run `rails db:create` and `rails db:migrate` to create and migrate the database tabels and associations.<br>
 **Step 8**<br>
-Run `ruby bin/bot.rb` to start the bot.<br>
+Run `rails s` to start the rails server.<br>
 **Step 9**<br>
-Open the link to the bot that you received from the Botfather.<br>
-**Step 10**<br>
-You can use the commands defined in the [Available commands section](#available-commands-for-the-master-search-bot) defined above.<br>
-
-## Repository Contents
-
-The code for the project is divided into the following directories: **./bin**, **./lib**, and **./spec**.
-
-The **./bin** folder contains the executable **bot.rb** file.
-
-The **./lib** folder contains subsidiary files that set up all of the classes and methods used in bin/main.rb
-
-- **search.rb**, where the Search class is defined.
-- **utils.rb**, where the Utils module is defined.
-- **responder.rb**, the Responder class that takes the messages and delegates responses.
-- **bot_replies.rb**, where the BotReplies module includes together all the other reply modules.
-- **bot_command_replies.rb**, where the BotCommandReplies module is defined.
-- **bot_search_replies.rb**, where the BotSearchReplies module is defined.
-
-The **./spec** folder contains all the relative spec tests
-
-- **search_spec.rb**, where the tests for the Search class are defined.
-- **utils_spec.rb**, where the tests for the Utils methods are defined.
-- **spec_helper.rb**, initial file generated by the RSpec.
-
-In addition to the above, the repo also contains .rubocop.yml for linting.
+You can visit the app at `http://localhost:3000`. Enjoy!<br>
 
 ## Tests
 
 1. Open Terminal
 
-2. Install RSpec on your system by running:
+2. Migrate the test database:
 
-    `gem install rspec`
+   `rails db:migrate RAILS_ENV=test`
 
 3. Run the tests with the command:
 
-    `rspec`
+   `rspec`
 
 ## Authors
 
@@ -120,8 +102,6 @@ In addition to the above, the repo also contains .rubocop.yml for linting.
 
 Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
 
-Feel free to check the [issues page](https://github.com/cristianCeamatu/microverse-ruby-telegram-bot/issues) to either create an issue or help us out by fixing an existing one.
-
 ## Show your support
 
 If you've read this far....give us a ⭐️!
@@ -129,3 +109,7 @@ If you've read this far....give us a ⭐️!
 ## 📝 License
 
 This project is licensed by Microverse and the Odin Project
+
+##  Acknowledgement
+
+- Design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)

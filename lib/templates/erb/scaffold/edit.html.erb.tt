@@ -1,0 +1,7 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%%= link_to "<%= plural_table_name.capitalize %>", <%= index_helper %>_path %></li>
+  <li class="breadcrumb-item"><%%= link_to @<%= singular_table_name %>.id, @<%= singular_table_name %> %></li>
+  <li class="breadcrumb-item active">Edit</li>
+</ol>
+
+<%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>

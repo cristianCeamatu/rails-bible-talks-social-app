@@ -1,0 +1,20 @@
+<div class="logged-user p-3">
+  <div class="logged-user-details d-flex align-items-center mb-0">
+  <%= image_tag user_image(current_user), class: 'rounded avatar-big' %>
+    <h3 class="logged-user-name font-14 pl-2 mb-0">
+      <%= link_to current_user.fullname, user_path(current_user) %>
+      <%= link_to 'Sign out', sign_out_path, class: 'text-danger font-12 d-block' %>
+    </h3>
+  </div>
+
+  <div class="logged-user-social row text-center">
+    <div class="col-6 py-4">
+      <p class="logged-user-social-count mb-0 h5"><%= current_user.followings.size %></p>
+      <p class="logged-user-social-type font-12 mb-0">Following</p>
+    </div>
+    <div class="col-6 py-4">
+      <p class="logged-user-social-count mb-0 h5"><%= current_user.followers.size %></p>
+      <p class="logged-user-social-type font-12 mb-0">Followers</p>
+    </div>
+  </div>
+</div>

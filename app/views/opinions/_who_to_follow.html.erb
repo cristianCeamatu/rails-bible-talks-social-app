@@ -1,0 +1,25 @@
+<div class="who-to-follow pl-3">
+  <div class="who-to-follow-header d-flex align-items-center justify-content-between py-3 pr-3">
+    <p class="mb-0 text-muted font-weight-bold">WHO TO FOLLOW</p>
+    <%= link_to root_path, class: 'text-muted' do %>
+      <%= fa_icon 'refresh' %>
+    <% end %>
+  </div>
+
+  <div class="who-to-follow-container">
+    <% users.with_attached_photo.each do |user| %>
+      <article class="opinions-feed-item d-flex align-items-center my-3">
+        <%= image_tag user_image(user), class: 'avatar rounded-circle' %>
+        <div class="who-to-follow-item-details pl-2">
+          <h5 class="who-to-follow-item-author font-14 text-dark mb-0 font-weight-bold text-break"><%= link_to user.fullname, user_path(user) %></h5>
+          <%= user_followers(user) %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+
+  <ul class="who-to-follow-links list-unstyled font-14 d-flex">
+    <li><%= link_to 'Popular account', root_path %></li>
+    <li><%= link_to 'Find friends', root_path, class: 'ml-2' %></li>
+  </ul>
+</div>

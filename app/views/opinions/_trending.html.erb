@@ -1,0 +1,15 @@
+<div class="trending border-top pt-4">
+  <div class="trending-header px-3 d-flex align-items-center justify-content-between mb-3">
+    <p class="trending-title mb-0 text-muted font-weight-bold">TRENDING</p>
+    <%= link_to root_path, class: 'text-muted' do %>
+      <%= fa_icon 'cog' %>
+    <% end %>
+  </div>
+
+  <ul class="trending-items border-top list-unstyled mx-3">
+    <li class="my-3"><%= link_to '#bible', root_path %></li>
+    <li class="my-3"><%= link_to '#verses', root_path %></li>
+    <li class="my-3"><%= link_to '#praiseLord', root_path %></li>
+    <li class="my-3"><%= link_to '#love', root_path %></li>
+  </ul>
+</div>

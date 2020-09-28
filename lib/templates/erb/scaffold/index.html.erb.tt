@@ -1,0 +1,13 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active mr-auto"><%= plural_table_name.capitalize %></li>
+</ol>
+<div class="card-columns">
+  <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+    <div class="card card mb-4">
+      <div class="card-body">
+        <h5 class="card-title"><%%= link_to <%= singular_table_name %>.to_s, <%= model_resource_name %> %></h5>
+        <p class="card-text"><%%= <%= singular_table_name %>.created_at %></p>
+      </div>
+    </div>
+  <%% end %>
+</div>

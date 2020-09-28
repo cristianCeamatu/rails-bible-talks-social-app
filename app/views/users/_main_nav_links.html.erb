@@ -1,0 +1,14 @@
+<nav class="nav-left pl-3">
+  <ul class="nav-left-items list-unstyled mb-0">
+    <li class="nav-left-item py-2">
+      <%= link_to root_path do %>
+        <%= fa_icon "home" %> HOME 
+      <% end %>
+    </li>
+    <li class="nav-left-item py-2">
+      <%= link_to user_path(current_user) do %>
+        <%= fa_icon "user" %> PROFILE 
+      <% end %>
+    </li>
+  </ul>
+</nav>

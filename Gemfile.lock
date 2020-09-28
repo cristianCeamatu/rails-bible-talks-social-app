@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/arunagw/omniauth-twitter.git
+  revision: 41c7be0f169dfd816a78f533b89047e6b29fe0bc
+  specs:
+    omniauth-twitter (1.4.0)
+      omniauth-oauth (~> 1.1)
+      rack
+
+GIT
+  remote: https://github.com/omniauth/omniauth-github.git
+  revision: 5afe8aee3baccd84ce6f265a3e62efbb55ac14b9
+  branch: master
+  specs:
+    omniauth-github (1.4.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,6 +54,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (0.9.0)
+      rails (>= 5.2.0)
     activejob (6.0.3.2)
       activesupport (= 6.0.3.2)
       globalid (>= 0.3.6)
@@ -59,15 +78,25 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
-    autoprefixer-rails (9.8.6.3)
-      execjs
+    aws-eventstream (1.1.0)
+    aws-partitions (1.376.0)
+    aws-sdk-core (3.108.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.38.0)
+      aws-sdk-core (~> 3, >= 3.99.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.81.1)
+      aws-sdk-core (~> 3, >= 3.104.3)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.2.2)
+      aws-eventstream (~> 1, >= 1.0.2)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
-    bootstrap (5.0.0.alpha1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.33.0)
@@ -81,20 +110,31 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    database_cleaner (1.8.5)
     diff-lcs (1.4.4)
     erubi (1.9.0)
-    execjs (2.7.0)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.13.1-x64-mingw32)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
+    hashie (4.1.0)
     hirb (0.7.3)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.0)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jmespath (1.4.0)
+    jwt (2.2.2)
     loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -104,18 +144,37 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
     mimemagic (0.3.5)
+    mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     msgpack (1.3.3-x64-mingw32)
+    multi_json (1.15.0)
+    multi_xml (0.6.0)
+    multipart-post (2.1.1)
     nio4r (2.5.2)
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    oauth (0.5.4)
+    oauth2 (1.4.4)
+      faraday (>= 0.8, < 2.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.9.1)
+      hashie (>= 3.4.6)
+      rack (>= 1.6.2, < 3)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.7.0)
+      oauth2 (~> 1.4)
+      omniauth (~> 1.9)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
     pg (1.2.3-x64-mingw32)
-    popper_js (1.16.0)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -180,6 +239,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     ruby-progressbar (1.10.1)
+    ruby-vips (2.0.17)
+      ffi (~> 1.9)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -206,7 +267,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -234,6 +294,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xmlrpc (0.3.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.0)
@@ -242,28 +303,36 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  active_storage_validations
+  aws-sdk-s3
   bootsnap (>= 1.4.2)
-  bootstrap (~> 5.0.0.alpha1)
   byebug
   capybara (>= 2.15)
+  database_cleaner
   figaro
+  font-awesome-rails
+  gravatar_image_tag
   hirb
+  image_processing
   jbuilder (~> 2.7)
+  mini_magick
+  omniauth-github!
+  omniauth-twitter!
   pg
   puma (~> 4.1)
-  rails (~> 6.0.3, >= 6.0.3.2)
+  rails (~> 6.0.3)
   rspec-rails (~> 4.0.1)
   rubocop (~> 0.81.0)
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers (~> 4.0)
   simple_form
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  xmlrpc
 
 RUBY VERSION
    ruby 2.6.6p146

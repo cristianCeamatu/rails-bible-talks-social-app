@@ -1,0 +1,9 @@
+<div class="pos-f-t mobile-nav-buttons right bg-white rounded d-sm-none">
+  <div class="collapse px-1" id="navbarToggleExternalContent2">
+    <%= render 'users/user_show_aside', user: user %>
+  </div>
+
+  <button class="navbar-toggler rounded-circle p-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent2" aria-controls="navbarToggleExternalContent2" aria-expanded="false" aria-label="Toggle navigation">
+    <%= image_tag user_image(user), class: 'rounded-circle avatar' %>
+  </button>
+</div>

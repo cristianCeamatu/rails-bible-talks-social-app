@@ -1,0 +1,34 @@
+<%% if <%= singular_table_name %>.errors.any? %>
+  <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger" role="alert">
+    <%%= message %>
+  </div>
+  <%% end %>
+<%% end %>
+<%%= form_with(model: <%= model_resource_name %>, local: true) do |form| -%>
+<div class="card">
+  <ul class="list-group list-group-flush">
+<% attributes.reject{|a| a.name == 'type' || a.name == 'deleted_at' || a.name.end_with?("_count")}.each do |attribute| -%>
+    <li class="list-group-item">
+      <div class="form-group">
+<% if attribute.password_digest? -%>
+        <%%= form.label :password, class: "font-weight-bold" %>
+        <%%= form.password_field :password, placeholder: "Enter password", class: "form-control" %>
+        <%%= form.label :password_confirmation, class: "font-weight-bold" %>
+        <%%= form.password_field :password_confirmation, placeholder: "Enter password confirmation", class: "form-control" %>
+<% else -%>
+        <%%= form.label :<%= attribute.column_name %>, class: "font-weight-bold" %>
+        <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, placeholder: "Enter <%= attribute.column_name %>", class: "form-control" %>
+<% end -%>
+      </div>
+    </li>
+<% end -%>
+  </ul>
+  <div class="card-footer">
+    <%%= link_to "Cancel", <%= model_resource_name %>, class: 'btn btn-outline-secondary float-left' if <%= singular_table_name %>.persisted? %>
+    <%%= link_to "Cancel", <%= index_helper %>_path, class: 'btn btn-outline-secondary float-left' if !<%= singular_table_name %>.persisted? %>
+    <%%= form.submit "Save", class: "btn btn-primary float-right" if <%= singular_table_name %>.persisted? %>
+    <%%= form.submit "Create", class: "btn btn-primary float-right" if !<%= singular_table_name %>.persisted? %>
+  </div>
+</div>
+<%% end %>

@@ -1,0 +1,13 @@
+<div class="sign-up-wrapper p-4 pt-sm-5">
+  <section class="sign-up border rounded shadow mx-auto my-3 my-sm-5 py-3 p-md-4">
+  <div class="container-fluid">
+    <div class="row text-center">
+      <h1 class="col-12 h3">Create a new User</h1>
+      
+      <%= render 'form', user: @user, button_text: 'Create account' %>
+
+      <p class="text-center mx-auto mt-3">Already have an account? <%= link_to 'Sign_in', sign_in_path %></p>
+    </div>
+  </div>
+  </section>
+</div>
